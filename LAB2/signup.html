@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>Welcome to the Demo E-Commerce website</h1>
-        <div class>
+        <div>
             <b class = "button_disactive">
                 <a href="./login.html">로그인</a>
             </b>
@@ -22,25 +22,25 @@
                     <label>이름 : <input type="text" name="name" autocomplete = "on" autofocus required></label>
                 </p>
                 <p>
-                    <label>생년월일 : <input type="date" required/></label>
+                    <label>생년월일 : <input type="date" name = "birth" required/></label>
                 </p>
                 <p>
-                    <label>학년 : <input type="number" step="1" min="1" value="2" required/></label>
+                    <label>학년 : <input type="number" name = "year" step="1" min="1" value="2" required/></label>
                 </p>
                 <p>
-                    <label>전화번호 : <input type="tel" placeholder="###-####-####" pattern="\d{3}-\d{4}-\d{4}" required/></label>
+                    <label>전화번호 : <input type="tel" name = "tel_num" placeholder="###-####-####" pattern="\d{3}-\d{4}-\d{4}" required/></label>
                 </p>
                 <p>
-                    <label>Email : <input type="email" placeholder="name@domain.com" autocomplete = "on" required/></label>
+                    <label>Email : <input type="email" name = "email" placeholder="name@domain.com" autocomplete = "on" required/></label>
                 </p>
                 <p>
-                    <label>USER ID : <input type="text" placeholder="원하는 ID를 입력하세요" required/> </label>
+                    <label>USER ID : <input type="text" name = "ID" placeholder="원하는 ID를 입력하세요" required/> </label>
                 </p>
                 <p>
-                    <label>비밀번호 : <input type="password" placeholder="비밀번호를 입력하세요" autocomplete = "off" required/> </label>
+                    <label>비밀번호 : <input type="password" name = "password" placeholder="비밀번호를 입력하세요" autocomplete = "off" required/> </label>
                 </p>
                 <p>
-                    <label>비밀번호 확인 : <input type="password" placeholder="비밀번호를 다시 입력하세요" autocomplete = "off" required/> </label>
+                    <label>비밀번호 확인 : <input type="password" name = "password_check" placeholder="비밀번호를 다시 입력하세요" autocomplete = "off" required/> </label>
                 </p>
                 <p>
                     <input type = "submit" value = "Signup"/>
