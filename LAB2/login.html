@@ -27,9 +27,15 @@
                 <!--로그인 버튼과 회원가입 버튼의 구현-->
                 <p class = "button">
                     <input type = "submit" value = "로그인"/>
+                    
+                    <!--
                     <a href="./signup.html">
                         <input type = "button" name = "ID" value = "회원가입"/>
                     </a>
+                    이 방법으로 실행 시, W3C에서는 오류 발생 -> 조교님께서 소개해주신 button을 이용
+                    -->
+                    <button class = "signup_button" type="button" name="ID" onclick="location.href='signup.html'">회원가입</button>
+
                 </p>
             </form>
         </div>
