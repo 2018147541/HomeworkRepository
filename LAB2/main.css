@@ -61,6 +61,18 @@ button.signup_button {
     
 }
 
+#signup {
+    width: 6em;
+    height: 2em;
+    background-color:midnightblue;
+    color: white;
+    border:sandybrown;
+    border-style:solid;
+    border-width: 2px;
+    padding:0;
+    margin:0;
+}
+
 div { text-align: left; margin: 0.5em; padding: 0.5em;}
 div.main_data {border-top-style:solid; border-bottom-style:solid; border-color:black; border-width: 3px;}
 div.underbar {border-bottom-style:solid; border-color: darkblue;}
