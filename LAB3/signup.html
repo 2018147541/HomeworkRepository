@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Signup Page</title>
+        <link rel = "stylesheet" type = "text/css" href = "main.css"/>
+    </head>
+    <body>
+        <h1>Welcome to the Demo E-Commerce website</h1>
+        <div>
+            <b class = "button_disactive">
+                <a href="./login.html">로그인</a>
+            </b>
+            <b class = "button_active">
+                회원가입
+            </b>
+        </div>
+        <div class = "main_data">
+            <p>개인정보(필수 항목)</p>
+            <!--form을 이용하여 데이터를 받는다-->
+            <form method = "POST" action = "http://www.example.com">
+                <p>
+                    <label>이름 : <input type="text" name="name" autocomplete = "on" autofocus required></label>
+                </p>
+                <p>
+                    <label>생년월일 : <input type="date" name = "birth" required/></label>
+                </p>
+                <p>
+                    <label>학년 : <input type="number" name = "year" step="1" min="1" value="2" required/></label>
+                </p>
+                <p>
+                    <label>전화번호 : <input type="tel" name = "tel_num" placeholder="###-####-####" pattern="\d{3}-\d{4}-\d{4}" required/></label>
+                </p>
+                <p>
+                    <label>Email : <input type="email" name = "email" placeholder="name@domain.com" autocomplete = "on" required/></label>
+                </p>
+                <p>
+                    <label>USER ID : <input type="text" name = "ID" placeholder="원하는 ID를 입력하세요" required/> </label>
+                </p>
+                <p>
+                    <label>비밀번호 : <input type="password" name = "password" placeholder="비밀번호를 입력하세요" autocomplete = "off" required/> </label>
+                </p>
+                <p>
+                    <label>비밀번호 확인 : <input type="password" name = "password_check" placeholder="비밀번호를 다시 입력하세요" autocomplete = "off" required/> </label>
+                </p>
+                <p>
+                    <input type = "submit" value = "Signup"/>
+                    <input type = "reset" value = "Cancel"/>
+                </p>
+            </form>
+        </div>
+    </body>
+</html>

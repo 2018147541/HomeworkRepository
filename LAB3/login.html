@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login Page</title>
+        <link rel = "stylesheet" type = "text/css" href = "main.css"/>
+    </head>
+    <body>
+        <h1>Welcome to the Demo E-Commerce website</h1>
+        <div>
+            <b class = "button_active">로그인</b>
+        </div> 
+        <!--<hr/>을 사용해도 되나, div 중 "main_data"의 div에다가 위/아래 border의 width를 줌으로서 표현-->
+        <div class = "main_data">
+            <p>회원 정보(필수)</p>
+            <form method = "POST" action = "http://www.example.com">
+                <p>
+                    <!--name = "ID 이런식으로 됨"-->
+                    <label>ID : <input type="text" name = "ID" placeholder="ID를 입력하세요" autocomplete = "on" autofocus required/> </label>
+                </p>
+                <p>
+                    <label>비밀번호 : <input type="password" name = "PW" placeholder="비밀번호를 입력하세요" autocomplete = "off" required/> </label>
+                </p>
+                <p>
+                    <label>비밀번호 확인 : <input type="password" name = "PW_recheck" placeholder="비밀번호를 다시 입력하세요" autocomplete = "off" required/> </label>
+                </p>
+                <!--로그인 버튼과 회원가입 버튼의 구현-->
+                <p class = "button">
+                    <input type = "submit" value = "로그인"/>
+                    
+                    <!--
+                    <a href="./signup.html">
+                        <input type = "button" name = "Signup" value = "회원가입"/>
+                    </a>
+                    이 방법으로 실행 시, W3C에서는 오류 발생 -> 조교님께서 소개해주신 button을 이용
+                    -->
+                    <button id = "signup" type="button" name="Signup" onclick="location.href='./signup.html'">회원가입</button>
+
+                </p>
+            </form>
+        </div>
+    </body>       
+</html>

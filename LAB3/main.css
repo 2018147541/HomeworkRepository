@@ -1,0 +1,105 @@
+*{position:relative;}
+
+body {font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+width: 990px; margin: 0 auto;}
+
+h1 {font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:900;
+    font-size:40px;
+    }
+
+h1.welcome_banner{
+    position:relative;
+    animation-name: welcome_banner;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+}
+@keyframes welcome_banner {
+    0% {left:1020px; top:0px;}
+    100% {left:0px; top:0px;}
+}
+
+/*로그인 버튼을 눌렀을 때, 하이퍼링크의 색이 바뀌지 않고, 밑줄이 생기지 않게 하기 위해서*/
+a:link, a:visited {
+    background-color:white;
+    color:black;
+    text-align: center;
+    text-decoration: none;
+}
+
+p {margin:10px;}
+input[type=submit]{
+    width: 6em;
+    height: 2em;
+    background-color:limegreen;
+    color: white;
+    border:red;
+    border-style:solid;
+    border-width: 2px;
+    padding:0;
+    margin:0;
+}
+input[type=reset]{
+    width: 6em;
+    height: 2em;
+    background-color:crimson;
+    color: white;
+    border:green;
+    border-style:solid;
+    border-width: 2px;
+    padding:0;
+    margin:0;
+}
+
+input[type=button]{
+    width: 6em;
+    height: 2em;
+    background-color:midnightblue;
+    color: white;
+    border:sandybrown;
+    border-style:solid;
+    border-width: 2px;
+    padding:0;
+    margin:0;
+}
+button.signup_button {
+    width: 6em;
+    height: 2em;
+    background-color:midnightblue;
+    color: white;
+    border:sandybrown;
+    border-style:solid;
+    border-width: 2px;
+    padding:0;
+    margin:0;
+    
+}
+
+#signup {
+    width: 6em;
+    height: 2em;
+    background-color:midnightblue;
+    color: white;
+    border:sandybrown;
+    border-style:solid;
+    border-width: 2px;
+    padding:0;
+    margin:0;
+}
+
+div { text-align: left; margin: 0.5em; padding: 0.5em;}
+div.main_data {border-top-style:solid; border-bottom-style:solid; border-color:black; border-width: 3px; overflow: auto;}
+div.main_items {font-size:20px; font-weight: 900; margin: 0; height: auto;}
+div.underbar {border-bottom-style:solid; border-color: darkblue;}
+
+
+div.site_introduction {column-count: 2; column-gap: 10px; column-rule-style: dotted; column-rule-color: brown; column-rule-width: 3px;}
+div.site_introduction>h2{column-span: all;}
+
+div.main_items>div {width: 380px; height: 550px; margin: 2px; padding: 0; border: 3px black; border-style: solid ; float:left;}
+div.main_items>div>img {transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) 2s}
+div.main_items>div>img:hover {width: 380px; }
+div>div>hr {height:2px; background-color:cyan; border-style: double;}
+div>b.button_active {text-align: center; padding: 0.5em; border-bottom-style: dashed; 
+    border-top-style: dashed; border-color:crimson;}
+div>b.button_disactive {text-align: center; padding: 0.5em;}
