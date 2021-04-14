@@ -103,7 +103,7 @@ div.site_introduction>h2{column-span: all; margin-top:0;}
 
 div.main_items>div {width: 40%; height: 100%; margin: 2px; padding: 0; border: 3px black; border-style: solid ; float:left;}
 div.main_items>div>img {transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) 2s}
-div.main_items>div>img:hover {height: 100%; width:100%}
+div.main_items>div>img:hover {height: 100%; width:90%}
 div>div>hr {height:2px; background-color:cyan; border-style: double;}
 div>b.button_active {text-align: center; padding: 0.5em; border-bottom-style: dashed; 
     border-top-style: dashed; border-color:crimson;}
