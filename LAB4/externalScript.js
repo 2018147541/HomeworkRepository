@@ -105,10 +105,11 @@ function initialize(products){
                     final_group.push(category_group[i]);
                 }
             }
+            // 검색어 필터링이 완료되었기에, 출력한다.
+            updateDisplay();
         }
 
-        // 검색어 필터링이 완료되었기에, 출력한다.
-        updateDisplay();
+        
     }
 
     // 화면에 출력을 담당하는 함수를 설정한다.
