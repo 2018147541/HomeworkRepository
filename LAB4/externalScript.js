@@ -5,6 +5,10 @@
 // 전체적으로 이 JS는 The Can Store를 기반으로 구현했습니다
 // https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/
 
+
+//Dom load될 시, first post를 render한다.
+document.addEventListener('DomContentLoaded', load);
+
 function load(){
     //Promise 사용
     fetch('product.json').then(function(response){

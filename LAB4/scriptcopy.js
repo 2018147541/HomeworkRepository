@@ -6,8 +6,8 @@
 
 //1)과 2)만 구현할 예정
 
-//1) 구현
-
+//원본
+/*
 // 전체적으로 이 JS는 The Can Store를 기반으로 구현했습니다
 // https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/
 
@@ -212,3 +212,8 @@ function initialize(products){
 
   }
 }
+
+*/
+
+//1번 구현
+/**/
