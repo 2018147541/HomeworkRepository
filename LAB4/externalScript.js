@@ -6,13 +6,20 @@ fetch('product.json').then(function(response){
     return response.json();
 }).then(function(json){
     let prod = json;
+    item_num = prod.length;
     initialize(prod);
 }).catch(function(error){
     console.log('Fetch Error: ' + error.message);
 });
 
+// 1 페이지에 최대 출력 가능한 제품 수: 짝수개를 유지해서 2개씩 짝지여서 출력되도록 한다.
+var page_max_num = 6;
 var count = 0;
 var item_num = 0;
+
+alert(page_max_num);
+alert(count);
+alert(item_num);
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
         count++;

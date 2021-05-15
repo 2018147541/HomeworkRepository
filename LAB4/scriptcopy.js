@@ -4,6 +4,7 @@ window.onscroll = () => {
     }
 }
 
+
 fetch('product.json').then(response => {
     return response.json();
 }).then(json => {
@@ -12,8 +13,6 @@ fetch('product.json').then(response => {
 }).catch(error => {
     console.log('Fetch Error: ' + error.message);
 });
-
-
 
 
 
