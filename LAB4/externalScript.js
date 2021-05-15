@@ -29,12 +29,13 @@ let count_max = 0;
 let infinite_sc = false;
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
-        count++;
-        let cate = document.getElementById('category_select').value;
-        if((count < page_max_num) && document.getElementById('category_select').value === 'All'){
+        //이미 측정된 count_max보다 count가 같거나 크면, infinite scroll을 할 필요가 없다.
+        if(count >= count_max){
             infinite_sc = true;
             load();
+            count++;
         }
+        // 그 외의 경우에는 따로 변경되지 않는다.
     }
 }
 
@@ -149,11 +150,11 @@ function initialize(products){
     // 화면에 출력을 담당하는 함수를 설정한다.
     function updateDisplay(){
         //count의 최댓값 설정
-        count_max = item_num/page_max_num-(item_num%page_max_num);
+        count_max = (item_num-(item_num%page_max_num))/page_max_num+1;
         // 만약 infinite scroll중이라면, 기존내용을 지우면 안되므로, 이걸 구분해야한다.
         if(infinite_sc){
             //특정 item들을 추가로 인쇄한다.
-            for(let i=count*page_max_num; (i<final_group.length) && (i=(1+count)*page_max_num); i++){
+            for(let i=count*page_max_num; (i<final_group.length) && (i<(1+count)*page_max_num); i++){
                 fetchBlob(final_group[i]);
             }
         }
