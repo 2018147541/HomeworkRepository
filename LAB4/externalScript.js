@@ -2,6 +2,15 @@
 // https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/
 
 
+window.onscroll = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight){
+      initialize(product);
+    }
+}
+
+
+
+
 //Promise 사용
 fetch('product.json').then(function(response){
     return response.json();
