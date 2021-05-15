@@ -74,8 +74,12 @@ function initialize(products){
     updateDisplay();
 
     // 검색을 위해 둘 다 비워두기
-    category_group = [];
-    final_group = [];
+    // 만약 infinite scroll중이었다면, 비우지 말기
+    if(!infinite_sc){
+        category_group = [];
+        final_group = [];
+    }
+    
 
     // 검색 버튼이 클릭되면 selectCategory 함수 부르기
     search_btn.onclick = selectCategory;
