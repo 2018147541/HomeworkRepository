@@ -92,8 +92,9 @@ function initialize(products){
             // 우선적으로 category의 값을 확인해야함
             // category 값이 ALL이면, 모든 json 데이터들을 selectProduct에 전달
             if(category.value === 'All'){
-                // count_max값을 0으로 초기화하여 다시 infinte-scroll 할 수 있게 한다
-                count_max=0;
+                // count값을 0으로 초기화하여 다시 infinte-scroll 할 수 있게 한다
+                count=0;
+                infinite_sc = true;
                 category_group = products;
                 selectProducts();
             }
