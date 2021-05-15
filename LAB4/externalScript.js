@@ -2,6 +2,8 @@
 // https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/
 
 
+
+
 //infinite scroll 구현
 window.onscroll = () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight){
@@ -179,7 +181,7 @@ function initialize(products){
         // image elment의 src를 product에서 받아서 설정하고, alt도 설정해준다. 그리고 CSS 설정을 위한 class를 부여한다
         image.src = objectURL;
         image.alt = product.book_name;
-        image.setAttribute('class', 'image');
+        image.setAttribute('class', 'book_img');
 
         // DOM에다 해당 product를 추가한다.
         data_main.appendChild(section);

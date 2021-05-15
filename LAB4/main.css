@@ -41,6 +41,14 @@ a:link, a:visited {
 }
 
 p {margin:10px;}
+
+p.price{
+    
+}
+img.book_img{
+    width: 300px;
+}
+
 input[type=submit]{
     width: 6em;
     height: 2em;
