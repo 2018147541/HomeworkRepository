@@ -159,7 +159,10 @@ function initialize(products){
         const section = document.createElement('section');
         const heading = document.createElement('h2');
         const para = document.createElement('p');
+        const spec = document.createElement('p');
         const image = document.createElement('img');
+        const button = document.createElement('button');
+        button.textContent = 'More';
         
         // section의 class를 property로 설정한다.
         section.setAttribute('class', product.book_type);
@@ -176,11 +179,18 @@ function initialize(products){
         image.alt = product.book_name;
         image.setAttribute('class', 'book_img');
 
+        spec.textContent = product.book_spec;
+
+        function showMore(){
+            section.appendChild(heading);
+            section.appendChild(spec);
+        }
+
         // DOM에다 해당 product를 추가한다.
         data_main.appendChild(section);
         section.appendChild(image);
         section.appendChild(para);
-
+        button.onclick = showMore;
 
     }
 }
