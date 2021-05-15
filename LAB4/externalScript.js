@@ -199,6 +199,7 @@ function initialize(products){
             else{
                 section.removeChild(section.childNodes[3]);
                 section.removeChild(section.childNodes[4]);
+                button.value = "More";
             }
             
         }
