@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', load);
 
 function load(){
     //Promise 사용
-    fetch('product.json').then(function(response){
+    fetch('product2.json').then(function(response){
         return response.json();
     }).then(function(json){
         let prod = json;

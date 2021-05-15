@@ -1,0 +1,363 @@
+[
+    {
+        "book_name": "Assembly language for x86 Processors",
+        "book_type": "Computer Science",
+        "book_price": "35000",
+        "book_image": "Assembly_language.png",
+        "book_spec": "This widely used, fully updated assembly language book provides basic information for the beginning programmer interested in computer architecture, operating systems, hardware manipulation, and compiler writing. ",
+        "book_ver": "7th Edition",
+        "book_quality":"S"
+},
+{
+    "book_name": "Assembly language for x86 Processors",
+    "book_type": "Computer Science",
+    "book_price": "30000",
+    "book_image": "Assembly_language.png",
+    "book_spec": "This widely used, fully updated assembly language book provides basic information for the beginning programmer interested in computer architecture, operating systems, hardware manipulation, and compiler writing. ",
+    "book_ver": "7th Edition",
+    "book_quality":"A"
+},
+{
+    "book_name": "Assembly language for x86 Processors",
+    "book_type": "Computer Science",
+    "book_price": "25000",
+    "book_image": "Assembly_language.png",
+    "book_spec": "This widely used, fully updated assembly language book provides basic information for the beginning programmer interested in computer architecture, operating systems, hardware manipulation, and compiler writing. ",
+    "book_ver": "7th Edition",
+    "book_quality":"B"
+},
+{
+    "book_name": "Assembly language for x86 Processors",
+    "book_type": "Computer Science",
+    "book_price": "20000",
+    "book_image": "Assembly_language.png",
+    "book_spec": "This widely used, fully updated assembly language book provides basic information for the beginning programmer interested in computer architecture, operating systems, hardware manipulation, and compiler writing. ",
+    "book_ver": "7th Edition",
+    "book_quality":"C"
+},
+    {
+    "book_name": "Data Structures and Algorithms in Java",
+    "book_type": "Computer Science",
+    "book_price": "40000",
+    "book_image": "data_structure.jpg",
+    "book_spec": "Data Structures and Algorithms in Java, Second Edition is designed to be easy to read and understand although the topic itself is complicated.",
+    "book_ver":"2nd Edition",
+    "book_quality":"S"
+},
+{
+    "book_name": "Data Structures and Algorithms in Java",
+    "book_type": "Computer Science",
+    "book_price": "30000",
+    "book_image": "data_structure.jpg",
+    "book_spec": "Data Structures and Algorithms in Java, Second Edition is designed to be easy to read and understand although the topic itself is complicated.",
+    "book_ver":"2nd Edition",
+    "book_quality":"A"
+},
+{
+    "book_name": "Data Structures and Algorithms in Java",
+    "book_type": "Computer Science",
+    "book_price": "25000",
+    "book_image": "data_structure.jpg",
+    "book_spec": "Data Structures and Algorithms in Java, Second Edition is designed to be easy to read and understand although the topic itself is complicated.",
+    "book_ver":"2nd Edition",
+    "book_quality":"B"
+},
+{
+    "book_name": "Data Structures and Algorithms in Java",
+    "book_type": "Computer Science",
+    "book_price": "20000",
+    "book_image": "data_structure.jpg",
+    "book_spec": "Data Structures and Algorithms in Java, Second Edition is designed to be easy to read and understand although the topic itself is complicated.",
+    "book_ver":"2nd Edition",
+    "book_quality":"C"
+},
+    {
+    "book_name": "생활코딩! HTML+CSS+자바스크립트",
+    "book_type": "Computer Science",
+    "book_price": "15000",
+    "book_image": "HTML.jpg",
+    "book_spec": "이고잉 님의 HTML/CSS/자바스크립트 강의는 이미 많은 분들에 의해 검증받은 독창적인 강의로 손꼽히고 있다. 단순히 HTML/CSS/자바스크립트 기술을 알려주는 데서 그치는 것이 아니라 무엇을 모르는지 모르는 상태에서조차 무언가를 배울 수 있는 학습 방법까지도 습득할 수 있다.",
+    "book_ver":"1st Edition",
+    "book_quality":"S"
+},
+{
+    "book_name": "생활코딩! HTML+CSS+자바스크립트",
+    "book_type": "Computer Science",
+    "book_price": "12000",
+    "book_image": "HTML.jpg",
+    "book_spec": "이고잉 님의 HTML/CSS/자바스크립트 강의는 이미 많은 분들에 의해 검증받은 독창적인 강의로 손꼽히고 있다. 단순히 HTML/CSS/자바스크립트 기술을 알려주는 데서 그치는 것이 아니라 무엇을 모르는지 모르는 상태에서조차 무언가를 배울 수 있는 학습 방법까지도 습득할 수 있다.",
+    "book_ver":"1st Edition",
+    "book_quality":"A"
+},
+{
+    "book_name": "생활코딩! HTML+CSS+자바스크립트",
+    "book_type": "Computer Science",
+    "book_price": "10000",
+    "book_image": "HTML.jpg",
+    "book_spec": "이고잉 님의 HTML/CSS/자바스크립트 강의는 이미 많은 분들에 의해 검증받은 독창적인 강의로 손꼽히고 있다. 단순히 HTML/CSS/자바스크립트 기술을 알려주는 데서 그치는 것이 아니라 무엇을 모르는지 모르는 상태에서조차 무언가를 배울 수 있는 학습 방법까지도 습득할 수 있다.",
+    "book_ver":"1st Edition",
+    "book_quality":"B"
+},
+{
+    "book_name": "생활코딩! HTML+CSS+자바스크립트",
+    "book_type": "Computer Science",
+    "book_price": "5000",
+    "book_image": "HTML.jpg",
+    "book_spec": "이고잉 님의 HTML/CSS/자바스크립트 강의는 이미 많은 분들에 의해 검증받은 독창적인 강의로 손꼽히고 있다. 단순히 HTML/CSS/자바스크립트 기술을 알려주는 데서 그치는 것이 아니라 무엇을 모르는지 모르는 상태에서조차 무언가를 배울 수 있는 학습 방법까지도 습득할 수 있다.",
+    "book_ver":"1st Edition",
+    "book_quality":"C"
+},
+    {
+    "book_name": "Discrete and Combinatorial Mathematics",
+    "book_type": "Computer Science",
+    "book_price": "30000",
+    "book_image": "discrete.jpg",
+    "book_spec": "The text offers a flexible organization, enabling instructors to adapt the book to their particular courses. ",
+    "book_ver": "5th Edition",
+    "book_quality":"S"
+},
+{
+    "book_name": "Discrete and Combinatorial Mathematics",
+    "book_type": "Computer Science",
+    "book_price": "25000",
+    "book_image": "discrete.jpg",
+    "book_spec": "The text offers a flexible organization, enabling instructors to adapt the book to their particular courses. ",
+    "book_ver": "5th Edition",
+    "book_quality":"A"
+},
+
+{
+    "book_name": "Discrete and Combinatorial Mathematics",
+    "book_type": "Computer Science",
+    "book_price": "20000",
+    "book_image": "discrete.jpg",
+    "book_spec": "The text offers a flexible organization, enabling instructors to adapt the book to their particular courses. ",
+    "book_ver": "5th Edition",
+    "book_quality":"B"
+},
+{
+    "book_name": "Discrete and Combinatorial Mathematics",
+    "book_type": "Computer Science",
+    "book_price": "15000",
+    "book_image": "discrete.jpg",
+    "book_spec": "The text offers a flexible organization, enabling instructors to adapt the book to their particular courses. ",
+    "book_ver": "5th Edition",
+    "book_quality":"C"
+},
+    {
+    "book_name": "Calculus: Early Transcendentals",
+    "book_type": "Mathematics",
+    "book_price": "40000",
+    "book_image": "calculus.jpg",
+    "book_spec": "Stewart conveys not only the utility of calculus to help you develop technical competence, but also gives you an appreciation for the intrinsic beauty of the subject.",
+    "book_ver":"8th Edition",
+    "book_quality":"S"
+},
+{
+    "book_name": "Calculus: Early Transcendentals",
+    "book_type": "Mathematics",
+    "book_price": "30000",
+    "book_image": "calculus.jpg",
+    "book_spec": "Stewart conveys not only the utility of calculus to help you develop technical competence, but also gives you an appreciation for the intrinsic beauty of the subject.",
+    "book_ver":"8th Edition",
+    "book_quality":"A"
+},
+{
+    "book_name": "Calculus: Early Transcendentals",
+    "book_type": "Mathematics",
+    "book_price": "25000",
+    "book_image": "calculus.jpg",
+    "book_spec": "Stewart conveys not only the utility of calculus to help you develop technical competence, but also gives you an appreciation for the intrinsic beauty of the subject.",
+    "book_ver":"8th Edition",
+    "book_quality":"B"
+},
+{
+    "book_name": "Calculus: Early Transcendentals",
+    "book_type": "Mathematics",
+    "book_price": "20000",
+    "book_image": "calculus.jpg",
+    "book_spec": "Stewart conveys not only the utility of calculus to help you develop technical competence, but also gives you an appreciation for the intrinsic beauty of the subject.",
+    "book_ver":"8th Edition",
+    "book_quality":"C"
+},
+    {
+    "book_name": "Contemporary Linear Algebra",
+    "book_type": "Mathematics",
+    "book_price": "50000",
+    "book_image": "linear_algebra.png",
+    "book_spec": "Without sacrificing mathematical precision, Anton and Busby focus on the aspects of linear algebra that are most likely to have practical value to the student while not compromising the intrinsic mathematical form of the subject.",
+    "book_ver":"1st Edition",
+    "book_quality":"S"
+},
+{
+    "book_name": "Contemporary Linear Algebra",
+    "book_type": "Mathematics",
+    "book_price": "40000",
+    "book_image": "linear_algebra.png",
+    "book_spec": "Without sacrificing mathematical precision, Anton and Busby focus on the aspects of linear algebra that are most likely to have practical value to the student while not compromising the intrinsic mathematical form of the subject.",
+    "book_ver":"1st Edition",
+    "book_quality":"A"
+},
+{
+    "book_name": "Contemporary Linear Algebra",
+    "book_type": "Mathematics",
+    "book_price": "30000",
+    "book_image": "linear_algebra.png",
+    "book_spec": "Without sacrificing mathematical precision, Anton and Busby focus on the aspects of linear algebra that are most likely to have practical value to the student while not compromising the intrinsic mathematical form of the subject.",
+    "book_ver":"1st Edition",
+    "book_quality":"B"
+},
+{
+    "book_name": "Contemporary Linear Algebra",
+    "book_type": "Mathematics",
+    "book_price": "20000",
+    "book_image": "linear_algebra.png",
+    "book_spec": "Without sacrificing mathematical precision, Anton and Busby focus on the aspects of linear algebra that are most likely to have practical value to the student while not compromising the intrinsic mathematical form of the subject.",
+    "book_ver":"1st Edition",
+    "book_quality":"C"
+},
+    {
+    "book_name": "Probability and Statistics for Engineers and Scientists",
+    "book_type": "Mathematics",
+    "book_price": "50000",
+    "book_image": "probability.jpg",
+    "book_spec": "This classic text provides a rigorous introduction to basic probability theory and statistical inference, with a unique balance between theory and methodology.",
+    "book_ver":"9th Edition",
+    "book_quality":"S"
+},
+{
+    "book_name": "Probability and Statistics for Engineers and Scientists",
+    "book_type": "Mathematics",
+    "book_price": "40000",
+    "book_image": "probability.jpg",
+    "book_spec": "This classic text provides a rigorous introduction to basic probability theory and statistical inference, with a unique balance between theory and methodology.",
+    "book_ver":"9th Edition",
+    "book_quality":"A"
+},
+{
+    "book_name": "Probability and Statistics for Engineers and Scientists",
+    "book_type": "Mathematics",
+    "book_price": "30000",
+    "book_image": "probability.jpg",
+    "book_spec": "This classic text provides a rigorous introduction to basic probability theory and statistical inference, with a unique balance between theory and methodology.",
+    "book_ver":"9th Edition",
+    "book_quality":"B"
+},
+{
+    "book_name": "Probability and Statistics for Engineers and Scientists",
+    "book_type": "Mathematics",
+    "book_price": "20000",
+    "book_image": "probability.jpg",
+    "book_spec": "This classic text provides a rigorous introduction to basic probability theory and statistical inference, with a unique balance between theory and methodology.",
+    "book_ver":"9th Edition",
+    "book_quality":"C"
+},
+    {
+    "book_name": "Fundamentals of Physics",
+    "book_type": "Physics/Chemistry",
+    "book_price": "45000",
+    "book_image": "fundamentals_of_physics.jpg",
+    "book_spec": "The new edition offers most accurate, extensive and varied set of assessment questions of any course management program in addition to all questions including some form of question assistance including answer specific feedback to facilitate success.",
+    "book_ver":"10th Edition",
+    "book_quality":"S"
+},
+{
+    "book_name": "Fundamentals of Physics",
+    "book_type": "Physics/Chemistry",
+    "book_price": "40000",
+    "book_image": "fundamentals_of_physics.jpg",
+    "book_spec": "The new edition offers most accurate, extensive and varied set of assessment questions of any course management program in addition to all questions including some form of question assistance including answer specific feedback to facilitate success.",
+    "book_ver":"10th Edition",
+    "book_quality":"A"
+},
+{
+    "book_name": "Fundamentals of Physics",
+    "book_type": "Physics/Chemistry",
+    "book_price": "30000",
+    "book_image": "fundamentals_of_physics.jpg",
+    "book_spec": "The new edition offers most accurate, extensive and varied set of assessment questions of any course management program in addition to all questions including some form of question assistance including answer specific feedback to facilitate success.",
+    "book_ver":"10th Edition",
+    "book_quality":"B"
+},
+{
+    "book_name": "Fundamentals of Physics",
+    "book_type": "Physics/Chemistry",
+    "book_price": "20000",
+    "book_image": "fundamentals_of_physics.jpg",
+    "book_spec": "The new edition offers most accurate, extensive and varied set of assessment questions of any course management program in addition to all questions including some form of question assistance including answer specific feedback to facilitate success.",
+    "book_ver":"10th Edition",
+    "book_quality":"C"
+},
+    {
+    "book_name": "Chemistry: Central Science",
+    "book_type": "Physics/Chemistry",
+    "book_price": "40000",
+    "book_image": "chemistry.jpg",
+    "book_spec": "For courses in two-semester general chemistry. Accurate, data-driven authorship with expanded interactivity leads to greater student engagement",
+    "book_ver":"14th Edition",
+    "book_quality":"S"
+},
+{
+    "book_name": "Chemistry: Central Science",
+    "book_type": "Physics/Chemistry",
+    "book_price": "35000",
+    "book_image": "chemistry.jpg",
+    "book_spec": "For courses in two-semester general chemistry. Accurate, data-driven authorship with expanded interactivity leads to greater student engagement",
+    "book_ver":"14th Edition",
+    "book_quality":"A"
+},
+{
+    "book_name": "Chemistry: Central Science",
+    "book_type": "Physics/Chemistry",
+    "book_price": "30000",
+    "book_image": "chemistry.jpg",
+    "book_spec": "For courses in two-semester general chemistry. Accurate, data-driven authorship with expanded interactivity leads to greater student engagement",
+    "book_ver":"14th Edition",
+    "book_quality":"B"
+},
+{
+    "book_name": "Chemistry: Central Science",
+    "book_type": "Physics/Chemistry",
+    "book_price": "20000",
+    "book_image": "chemistry.jpg",
+    "book_spec": "For courses in two-semester general chemistry. Accurate, data-driven authorship with expanded interactivity leads to greater student engagement",
+    "book_ver":"14th Edition",
+    "book_quality":"C"
+},
+    {
+    "book_name": "(사진과 그림으로 보는) 한국현대사",
+    "book_type": "Korean History",
+    "book_price": "15000",
+    "book_image": "KoreanHistory.jpg",
+    "book_spec": "이 책은 가장 객관적이고 신뢰받는 현대사 개설서로 인정받으며 대학 신입생의 필독서로 자리매김했다.",
+    "book_ver":"3th edition",
+    "book_quality":"S"
+},
+{
+    "book_name": "(사진과 그림으로 보는) 한국현대사",
+    "book_type": "Korean History",
+    "book_price": "10000",
+    "book_image": "KoreanHistory.jpg",
+    "book_spec": "이 책은 가장 객관적이고 신뢰받는 현대사 개설서로 인정받으며 대학 신입생의 필독서로 자리매김했다.",
+    "book_ver":"3th edition",
+    "book_quality":"A"
+},
+{
+    "book_name": "(사진과 그림으로 보는) 한국현대사",
+    "book_type": "Korean History",
+    "book_price": "8000",
+    "book_image": "KoreanHistory.jpg",
+    "book_spec": "이 책은 가장 객관적이고 신뢰받는 현대사 개설서로 인정받으며 대학 신입생의 필독서로 자리매김했다.",
+    "book_ver":"3th edition",
+    "book_quality":"B"
+},
+{
+    "book_name": "(사진과 그림으로 보는) 한국현대사",
+    "book_type": "Korean History",
+    "book_price": "5000",
+    "book_image": "KoreanHistory.jpg",
+    "book_spec": "이 책은 가장 객관적이고 신뢰받는 현대사 개설서로 인정받으며 대학 신입생의 필독서로 자리매김했다.",
+    "book_ver":"3th edition",
+    "book_quality":"C"
+}
+]

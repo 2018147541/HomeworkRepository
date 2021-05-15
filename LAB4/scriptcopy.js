@@ -453,7 +453,7 @@ function initialize(products){
 
 
 =====================================================
-ver2(수정버전)
+ver2(수정버전: 최종버전)
 // 전체적으로 이 JS는 The Can Store를 기반으로 구현했습니다
 // https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/
 
