@@ -177,6 +177,8 @@ function initialize(products){
 
         // DOM에다 해당 product를 추가한다.
         data_main.appendChild(section);
+        section.appendChild(image);
+        section.appendChild(para);
 
 
     }
