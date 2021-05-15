@@ -190,6 +190,7 @@ function initialize(products){
         data_main.appendChild(section);
         section.appendChild(image);
         section.appendChild(para);
+        section.appendChild(button);
         button.onclick = showMore;
 
     }
