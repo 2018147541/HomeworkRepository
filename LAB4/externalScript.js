@@ -71,7 +71,7 @@ function initialize(products){
             // category 값이 ALL이면, 모든 json 데이터들을 selectProduct에 전달
             if(category.value === 'All'){
                 category_group = products;
-                selecProducts();
+                selectProducts();
             }
             // 아니면 필터링해야한다
             else{
