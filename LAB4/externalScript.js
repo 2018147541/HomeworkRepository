@@ -2,15 +2,6 @@
 // https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/
 
 
-
-
-//infinite scroll 구현
-window.onscroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight){
-      initialize(product);
-    }
-}
-
 //Promise 사용
 fetch('product.json').then(response => {
     return response.json();
