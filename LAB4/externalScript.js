@@ -57,21 +57,17 @@ function initialize(products){
     let category_group;
     let final_group;
   
-    // 만약 category가 ALL이면 따로 해줌
-    if(prev_category === 'All'){
-        // 첫 시작은 전부 다 보여줘야 하므로, 일단 final group을 products로 초기화, display
-        final_group = products;
-        updateDisplay();
-    }
-    //아닌 경우에는 따로 불러준다
-    else{
-// 검색을 위해 둘 다 비워두기
-        category_group = [];
-        final_group = [];
+    // 첫 시작은 전부 다 보여줘야 하므로, 일단 final group을 products로 초기화, display
+    final_group = products;
+    updateDisplay();
 
-        // 검색 버튼이 클릭되면 selectCategory 함수 부르기
-        search_btn.onclick = selectCategory;    
-    }
+    // 검색을 위해 둘 다 비워두기
+    category_group = [];
+    final_group = [];
+
+    // 검색 버튼이 클릭되면 selectCategory 함수 부르기
+    search_btn.onclick = selectCategory;
+
 
     // 검색버튼 클릭될 시, 카테고리 필터링 할 방법 확인
     function selectCategory(e){
@@ -91,21 +87,15 @@ function initialize(products){
             // 사용자가 입력한 검색값 및 카테고리를 저장
             prev_category = category.value;
             prev_search = search_item.value.trim();
-            
-            
+
             // 우선적으로 category의 값을 확인해야함
             // category 값이 ALL이면, 모든 json 데이터들을 selectProduct에 전달
             if(category.value === 'All'){
-                // count값을 0으로 초기화하여 다시 infinte-scroll 할 수 있게 한다
-                count=0;
-                infinite_sc = true;
                 category_group = products;
                 selectProducts();
             }
             // 아니면 필터링해야한다
             else{
-                // 필터링 할 떄, infinite scroll 되면 안되므로 값을 false로 해준다
-                infinite_sc = false;
                 // json 데이터 필터링
                 for(let i = 0; i < products.length ; i++) {
                     // book_type가 동일할 경우, category_group에 넣는다
