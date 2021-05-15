@@ -20,14 +20,18 @@ function load(){
 
 // 1 페이지에 최대 출력 가능한 제품 수: 짝수개를 유지해서 2개씩 짝지여서 출력되도록 한다.
 let page_max_num = 6;
+// infinite scroll 부른 횟수를 저장한다
 let count = 0;
-let item_num;
-let count_max = 6;
+// 특정 category/text 검색에 해당하는 아이템의 갯수를 
+let item_num = 0;
+// 특정 환경에서 infinite scroll이 최대로 불러질 수 있는 횟수를 저장한다.
+let count_max = 0;
 let infinite_sc = false;
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
         count++;
-        if((count < count_max) && document.getElementById('category_select').value === 'All'){
+        let cate = document.getElementById('category_select').value;
+        if((count < page_max_num) && document.getElementById('category_select').value === 'All'){
             infinite_sc = true;
             load();
         }
@@ -89,18 +93,20 @@ function initialize(products){
             prev_search = search_item.value.trim();
 
             // 우선적으로 category의 값을 확인해야함
-            // category 값이 ALL이면, 모든 json 데이터들을 selectProduct에 전달
+            // category 값이 변했기 때문에, category의 element의 갯수 등을 초기화시켜야한다.
+            // ALL이면, 모든 json 데이터들을 selectProduct에 전달
             // 이 경우는, category가 바뀌어서 all인 경우이므로, 화면을 지워야함->infinite scroll false여야한다
+
+            count = 0;
+            infinite_sc = false;
+            
             if(category.value === 'All'){
                 category_group = products;
-                count = 0;
-                infinite_sc = false;
+                item_num = products.length;
                 selectProducts();
             }
             // 아니면 필터링해야한다
-            // infinite scroll을 못하기 때문에, false로 바꿔준다
             else{
-                infinite_sc = false;
                 // json 데이터 필터링
                 for(let i = 0; i < products.length ; i++) {
                     // book_type가 동일할 경우, category_group에 넣는다
@@ -119,6 +125,7 @@ function initialize(products){
         // 만약 검색어가 존재한다면(''이 아니라면), display에 출력, 아니면 그냥 그대로 출력한다.
         if(search_item.value.trim() === ''){
             final_group = category_group;
+            item_num = category_group.length;
             updateDisplay();
         }
         else{
@@ -129,6 +136,7 @@ function initialize(products){
             for(let i=0; i<category_group.length; i++){
                 if(category_group[i].book_name.toLowerCase().indexOf(lower_search_item) !== -1){
                     final_group.push(category_group[i]);
+                    item_num++;
                 }
             }
             // 검색어 필터링이 완료되었기에, 출력한다.
@@ -140,13 +148,16 @@ function initialize(products){
 
     // 화면에 출력을 담당하는 함수를 설정한다.
     function updateDisplay(){
+        //count의 최댓값 설정
+        count_max = item_num/page_max_num-(item_num%page_max_num);
         // 만약 infinite scroll중이라면, 기존내용을 지우면 안되므로, 이걸 구분해야한다.
         if(infinite_sc){
-            //똑같은 내용을 한 번 더 
-            for(let i=0; i<final_group.length; i++){
+            //특정 item들을 추가로 인쇄한다.
+            for(let i=count*page_max_num; (i<final_group.length) && (i=(1+count)*page_max_num); i++){
                 fetchBlob(final_group[i]);
             }
         }
+        //기존 내용을 지우는 경우는, 검색 등과 같이 특정으로 변할 때 사용된다.
         else{
             //기존 내용들을 지운다.
             while(data_main.firstChild){
@@ -161,7 +172,7 @@ function initialize(products){
             }
             // 검색결과가 있다면, fetchBlob함수에 넘겨서 출력을 위한 변환과정을 거친다.
             else{
-                for(let i=0; i<final_group.length; i++){
+                for(let i=0; i<final_group.length && i<page_max_num; i++){
                     fetchBlob(final_group[i]);
                 }
             }
