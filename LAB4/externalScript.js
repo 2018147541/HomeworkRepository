@@ -7,7 +7,7 @@
 
 
 //Dom load될 시, first post를 render한다.
-document.addEventListener('DomContentLoaded', load);
+document.addEventListener('DOMContentLoaded', load);
 
 function load(){
     //Promise 사용
