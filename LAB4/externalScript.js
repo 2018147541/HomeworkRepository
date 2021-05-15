@@ -179,7 +179,7 @@ function initialize(products){
         image.alt = product.book_name;
         image.setAttribute('class', 'book_img');
 
-        quality.textContent = product.book_quality;
+        quality.textContent = '상태: ' + product.book_quality + '급';
 
         function showMore(){
             section.appendChild(heading);
