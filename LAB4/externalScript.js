@@ -1,14 +1,20 @@
 // 전체적으로 이 JS는 The Can Store를 기반으로 구현했습니다
 // https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/
 
+let temp = document.createElement('div');
+temp.textContent = "This is javaScript main\n";
+const data_test = document.querySelector('#test');
+data_test.appendChild(temp);
 
 //Promise 사용
-fetch('product.json').then(response => {
+fetch('product.json').then(function(response){
+    temp.textContent = "This is first promise\n";
+    data_test.appendChild(temp);
     return response.json();
-}).then(json => {
+}).then(function(json){
     let prod = json;
     initialize(prod);
-}).catch(error => {
+}).catch(function(error){
     console.log('Fetch Error: ' + error.message);
 });
 
@@ -16,6 +22,11 @@ fetch('product.json').then(response => {
 
 //page의 기본 logic 등 구현
 function initialize(products){
+
+    temp.textContent = "This is function initialize\n";
+    data_test.appendChild(temp);
+
+
     // 선택한 필터 카테고리
     const category = document.querySelector('#category_select');
     // 검색할 단어
