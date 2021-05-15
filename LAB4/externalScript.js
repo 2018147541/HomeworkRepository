@@ -147,7 +147,7 @@ function initialize(products){
 
         // fetch로 이미지 fetch 후, response해준다.
         // blob형태로 response하면, 이걸 받아서 URL을 생성해준다.
-        fetch(url).them(response => {
+        fetch(url).then(response => {
             return response.blob();
         }).then(blob => {
             // URL을 생성해준다.
@@ -184,6 +184,6 @@ function initialize(products){
         // DOM에다 해당 product를 추가한다.
         data_main.appendChild(section);
 
-        
+
     }
 }
