@@ -1,0 +1,189 @@
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 1020px;
+    height: 800px; 
+    margin: 0 auto;
+}
+
+/*가운데 정렬을 하기 위한 다양한 방법 중 다음의 두가지 경우가 있다. 
+1) position:absolute; left:50%; margin-left: -490px;(왼쪽을 50%만큼 오른쪽으로 옮긴 후, 가로 크기의 절반인 490px만큼 왼쪽으로 당기는 방법)
+2) margin: 0 auto로 하는 방법
+
+1)의 경우는 화면의 크기를 결정짓는 상태에서만 가능한 단점이 있고, 2)의 경우는 span 태그를 사용 불가능하다는 단점이 있다. */
+
+h1 {font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight:900;
+    font-size:40px;
+    margin:5px;
+    text-align: center;
+    }
+
+h1.welcome_banner{
+    position: relative;
+    /* 이제 애니메이션은 필요 없으니 주석처리
+    animation-name: welcome_banner;
+    animation-duration: 2s;
+    animation-timing-function:cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    */
+}
+/*
+@keyframes welcome_banner {
+    0% {left:1020px; top:0px;}
+    100% {left:0px; top:0px;}
+}*/
+
+/*로그인 버튼을 눌렀을 때, 하이퍼링크의 색이 바뀌지 않고, 밑줄이 생기지 않게 하기 위해서*/
+a:link, a:visited {
+    background-color:white;
+    color:black;
+    text-align: center;
+    text-decoration: none;
+}
+
+p {margin:10px;}
+input[type=submit]{
+    width: 6em;
+    height: 2em;
+    background-color:limegreen;
+    color: white;
+    border:red;
+    border-style:solid;
+    border-width: 2px;
+    padding:0;
+    margin:0;
+}
+input[type=reset]{
+    width: 6em;
+    height: 2em;
+    background-color:crimson;
+    color: white;
+    border:green;
+    border-style:solid;
+    border-width: 2px;
+    padding:0;
+    margin:0;
+}
+
+input[type=button]{
+    width: 6em;
+    height: 2em;
+    background-color:midnightblue;
+    color: white;
+    border:sandybrown;
+    border-style:solid;
+    border-width: 2px;
+    padding:0;
+    margin:0;
+}
+button.signup_button {
+    width: 6em;
+    height: 2em;
+    background-color:midnightblue;
+    color: white;
+    border:sandybrown;
+    border-style:solid;
+    border-width: 2px;
+    padding:0;
+    margin:0;
+    
+}
+
+#signup {
+    width: 6em;
+    height: 2em;
+    background-color:midnightblue;
+    color: white;
+    border:sandybrown;
+    border-style:solid;
+    border-width: 2px;
+    padding:0;
+    margin:0;
+}
+
+#header{
+    position:relative;
+    border: 2px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+#main_box{ 
+    position:relative;
+    border: 2px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+#main_box_mainsite { 
+    position:relative;
+    border: 2px solid black;
+    border-top:0;
+    margin: 0;
+    padding: 0;
+    display:flex;
+}
+
+#main_box>div{
+    position:relative;
+    border: 2px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+#welcom_page_change{
+    position:relative;
+    border: 2px solid black;
+    margin: 0;
+    padding: 0;
+}
+
+
+#category{
+    display: flex;
+    width: 250px;
+    border: 2px solid black;
+    border-top: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#main_data{
+    display: flex;
+    width: 770px;
+    border: 2px solid black;
+    border-top:0;
+    margin: 0;
+    padding: 0;
+}
+
+div { text-align: left; margin: 0.5em; padding: 0.5em;}
+
+
+div.site_introduction {
+    column-count: 2; 
+    column-gap: 10px; 
+    column-rule-style: dotted; 
+    column-width:auto; 
+    column-rule-color: brown; 
+    column-rule-width: 3px;
+}
+div.site_introduction>h2{
+    column-span: all; 
+    margin-top:0;
+}
+
+
+
+div>b.button_active {
+    text-align: center; 
+    padding: 0.5em; 
+    border-bottom-style: dashed; 
+    border-top-style: dashed;
+    border-color:crimson;
+}
+div>b.button_disactive {
+    text-align: center; 
+    padding: 0.5em;
+}

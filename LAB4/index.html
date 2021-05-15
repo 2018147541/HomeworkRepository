@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Main Page</title>
+        <link rel = "stylesheet" type = "text/css" href = "main.css"/>
+        <script src="externalScript.js"></script>
+    </head>
+    <body>
+        <div id="header">
+            <div id = "welcom_page_change">
+                <h1 class = "welcome_banner">Welcome to the Demo website</h1>
+                <div>
+                    <b class= "button_active">
+                        <a>메인페이지</a>
+                    </b>
+                    <b class = "button_disactive">
+                        <a href="./login.html">로그인</a>
+                    </b>
+                    <b class = "button_disactive">
+                        <a href="./signup.html">회원가입</a>
+                    </b>
+                </div>
+            </div>
+        </div>
+
+        <div id = "main_box_mainsite">
+            <div id="category">
+                <form>
+                    <div>
+                        <label>Category:</label>
+                        <br>
+                        <select id="category_select">
+                            <option selected>All</option>
+                            <option>Computer Science</option>
+                            <option>Mathematics</option>
+                            <option>Physics</option>
+                            <option>Korean History</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Enter to search:</label>
+                        <input type="text" id="search_item" placeholder="ex) HTML">
+                    </div>
+                    <div>
+                        <button>Search/Filter</button>
+                    </div>
+                </form>
+            </div>
+            <div id="main_data">
+                
+            </div>
+        </div>
+    </body>
+</html>
