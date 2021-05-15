@@ -195,6 +195,7 @@ div.site_introduction>h2{
 section{
     border: 2px solid black;
     margin: 10px;
+    width: 300px;
 }
 
 

@@ -159,7 +159,7 @@ function initialize(products){
         const section = document.createElement('section');
         const heading = document.createElement('h2');
         const para = document.createElement('p');
-        const spec = document.createElement('p');
+        const quality = document.createElement('p');
         const image = document.createElement('img');
         const button = document.createElement('button');
         button.textContent = 'More';
@@ -179,11 +179,11 @@ function initialize(products){
         image.alt = product.book_name;
         image.setAttribute('class', 'book_img');
 
-        spec.textContent = product.book_spec;
+        quality.textContent = product.book_quality;
 
         function showMore(){
             section.appendChild(heading);
-            section.appendChild(spec);
+            section.appendChild(quality);
         }
 
         // DOM에다 해당 product를 추가한다.
