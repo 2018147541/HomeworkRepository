@@ -1,203 +1,214 @@
-window.onscroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight){
-      initialize(product);
-    }
+//기본 백업
+
+//1) 1~10 출력, 그리고 밑으로 내려갈때마다 새로 출력
+//2) 1~6 출력, 내려가면 7~10출력, 그리고 끝
+//3) 1~6출력, 그리고 내려가면 무제한적으로 출력
+
+//1)과 2)만 구현할 예정
+
+//1) 구현
+
+// 전체적으로 이 JS는 The Can Store를 기반으로 구현했습니다
+// https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/
+
+//Promise 사용
+fetch('product.json').then(function(response){
+  return response.json();
+}).then(function(json){
+  let prod = json;
+  item_num = prod.length;
+  initialize(prod);
+}).catch(function(error){
+  console.log('Fetch Error: ' + error.message);
+});
+
+// 1 페이지에 최대 출력 가능한 제품 수: 짝수개를 유지해서 2개씩 짝지여서 출력되도록 한다.
+window.onscroll = function(e){
+  if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
+      count++;
+      alert("The End of the page!");
+  }
 }
 
 
-fetch('product.json').then(response => {
-    return response.json();
-}).then(json => {
-    let prod = json;
-    initialize(prod);
-}).catch(error => {
-    console.log('Fetch Error: ' + error.message);
-});
+//page의 기본 logic 등 구현
+function initialize(products){
+
+  // 선택한 필터 카테고리
+  const category = document.querySelector('#category_select');
+  // 검색할 단어
+  const search_item = document.querySelector('#search_item');
+  // 검색단어 입력 후, 검색버튼을 누를 시 그걸 컨트롤할 변수
+  const search_btn = document.querySelector('button');
+  // 제품들을 보여줄 공간
+  const data_main = document.querySelector('#main_data');
+
+  // 그전에 어떠한 카테고리를 선택했는지 기억
+  let prev_category = category.value;
+  // 기존 검색 단어는 날리기
+  let prev_search = '';
+
+  // category_group을 생성, 카테고리/검색어를 통해 필터한 결과를 저장
+  // final_group을 생성, display할 내용을 저장
+  let category_group;
+  let final_group;
+
+  // 첫 시작은 전부 다 보여줘야 하므로, 일단 final group을 products로 초기화, display
+  final_group = products;
+  updateDisplay();
+
+  // 검색을 위해 둘 다 비워두기
+  category_group = [];
+  final_group = [];
+
+  // 검색 버튼이 클릭되면 selectCategory 함수 부르기
+  search_btn.onclick = selectCategory;
 
 
-
-
-// sets up the app logic, declares required variables, contains all the other functions
-function initialize(products) {
-    // grab the UI elements that we need to manipulate
-    const category = document.querySelector('#category');
-    const searchTerm = document.querySelector('#searchTerm');
-    const searchBtn = document.querySelector('button');
-    const main = document.querySelector('main');
-  
-    // keep a record of what the last category and search term entered were
-    let lastCategory = category.value;
-    // no search has been made yet
-    let lastSearch = '';
-  
-    // these contain the results of filtering by category, and search term
-    // finalGroup will contain the products that need to be displayed after
-    // the searching has been done. Each will be an array containing objects.
-    // Each object will represent a product
-    let categoryGroup;
-    let finalGroup;
-  
-    // To start with, set finalGroup to equal the entire products database
-    // then run updateDisplay(), so ALL products are displayed initially.
-    finalGroup = products;
-    updateDisplay();
-  
-    // Set both to equal an empty array, in time for searches to be run
-    categoryGroup = [];
-    finalGroup = [];
-  
-    // when the search button is clicked, invoke selectCategory() to start
-    // a search running to select the category of products we want to display
-    searchBtn.onclick = selectCategory;
-  
-    function selectCategory(e) {
-      // Use preventDefault() to stop the form submitting — that would ruin
-      // the experience
+  // 검색버튼 클릭될 시, 카테고리 필터링 할 방법 확인
+  function selectCategory(e){
+      // form submitting을 멈춘다
       e.preventDefault();
-  
-      // Set these back to empty arrays, to clear out the previous search
-      categoryGroup = [];
-      finalGroup = [];
-  
-      // if the category and search term are the same as they were the last time a
-      // search was run, the results will be the same, so there is no point running
-      // it again — just return out of the function
-      if(category.value === lastCategory && searchTerm.value.trim() === lastSearch) {
-        return;
-      } else {
-        // update the record of last category and search term
-        lastCategory = category.value;
-        lastSearch = searchTerm.value.trim();
-        // In this case we want to select all products, then filter them by the search
-        // term, so we just set categoryGroup to the entire JSON object, then run selectProducts()
-        if(category.value === 'All') {
-          categoryGroup = products;
-          selectProducts();
-        // If a specific category is chosen, we need to filter out the products not in that
-        // category, then put the remaining products inside categoryGroup, before running
-        // selectProducts()
-        } else {
-          // the values in the <option> elements are uppercase, whereas the categories
-          // store in the JSON (under "type") are lowercase. We therefore need to convert
-          // to lower case before we do a comparison
-          let lowerCaseType = category.value.toLowerCase();
-          for(let i = 0; i < products.length ; i++) {
-            // If a product's type property is the same as the chosen category, we want to
-            // display it, so we push it onto the categoryGroup array
-            if(products[i].type === lowerCaseType) {
-              categoryGroup.push(products[i]);
-            }
+
+      // 기존 검색기록을 초기화
+      category_group = [];
+      final_group = [];
+
+      // 기존 category와 값이 같거나, 검색 text도 동일할 시, 기존과 동일함->함수 종료
+      if(category.value === prev_category && search_item.value.trim() === prev_search) {
+          return;
+      }
+      // 동일하지 않을 시, 검색 진행
+      else{
+          // 사용자가 입력한 검색값 및 카테고리를 저장
+          prev_category = category.value;
+          prev_search = search_item.value.trim();
+
+          // 우선적으로 category의 값을 확인해야함
+          // category 값이 ALL이면, 모든 json 데이터들을 selectProduct에 전달
+          if(category.value === 'All'){
+              category_group = products;
+              selectProducts();
           }
-  
-          // Run selectProducts() after the filtering has been done
-          selectProducts();
-        }
-      }
-    }
-  
-    // selectProducts() Takes the group of products selected by selectCategory(), and further
-    // filters them by the tiered search term (if one has been entered)
-    function selectProducts() {
-      // If no search term has been entered, just make the finalGroup array equal to the categoryGroup
-      // array — we don't want to filter the products further — then run updateDisplay().
-      if(searchTerm.value.trim() === '') {
-        finalGroup = categoryGroup;
-        updateDisplay();
-      } else {
-        // Make sure the search term is converted to lower case before comparison. We've kept the
-        // product names all lower case to keep things simple
-        let lowerCaseSearchTerm = searchTerm.value.trim().toLowerCase();
-        // For each product in categoryGroup, see if the search term is contained inside the product name
-        // (if the indexOf() result doesn't return -1, it means it is) — if it is, then push the product
-        // onto the finalGroup array
-        for(let i = 0; i < categoryGroup.length ; i++) {
-          if(categoryGroup[i].name.indexOf(lowerCaseSearchTerm) !== -1) {
-            finalGroup.push(categoryGroup[i]);
+          // 아니면 필터링해야한다
+          else{
+              // json 데이터 필터링
+              for(let i = 0; i < products.length ; i++) {
+                  // book_type가 동일할 경우, category_group에 넣는다
+                  if(products[i].book_type === category.value) {
+                      category_group.push(products[i]);
+                  }
+              }
+              // 필터링이 끝났기 때문에, 검색어로 필터링을 위해 selectProducts()를 실행한다.
+              selectProducts();
           }
-        }
-  
-        // run updateDisplay() after this second round of filtering has been done
-        updateDisplay();
+      }   
+  }
+
+  // 카테고리로 필터링 후, 검색어로 필터링 하기 위해, 함수를 만든다.
+  function selectProducts(){
+      // 만약 검색어가 존재한다면(''이 아니라면), display에 출력, 아니면 그냥 그대로 출력한다.
+      if(search_item.value.trim() === ''){
+          final_group = category_group;
+          updateDisplay();
       }
-  
-    }
-  
-    // start the process of updating the display with the new set of products
-    function updateDisplay() {
-      // remove the previous contents of the <main> element
-      while (main.firstChild) {
-        main.removeChild(main.firstChild);
+      else{
+          // 검색어를 검색할 때, 대소문자로 인한 오류 발생을 막기 위하여 전부 소문자로 바꾼다
+          let lower_search_item = search_item.value.trim().toLowerCase();
+
+          // 검색어에 해당되는 것이 있는지 확인하여, 일치하면 출력할 finalgroup에 push한다
+          for(let i=0; i<category_group.length; i++){
+              if(category_group[i].book_name.toLowerCase().indexOf(lower_search_item) !== -1){
+                  final_group.push(category_group[i]);
+              }
+          }
+          // 검색어 필터링이 완료되었기에, 출력한다.
+          updateDisplay();
       }
-  
-      // if no products match the search term, display a "No results to display" message
-      if(finalGroup.length === 0) {
-        const para = document.createElement('p');
-        para.textContent = 'No results to display!';
-        main.appendChild(para);
-      // for each product we want to display, pass its product object to fetchBlob()
-      } else {
-        for(let i = 0; i < finalGroup.length; i++) {
-          fetchBlob(finalGroup[i]);
-        }
+
+      
+  }
+
+  // 화면에 출력을 담당하는 함수를 설정한다.
+  function updateDisplay(){
+      //기존 내용들을 지운다.
+      while(data_main.firstChild){
+          data_main.removeChild(data_main.firstChild);
       }
-    }
-  
-    // fetchBlob uses fetch to retrieve the image for that product, and then sends the
-    // resulting image display URL and product object on to showProduct() to finally
-    // display it
-    function fetchBlob(product) {
-      // construct the URL path to the image file from the product.image property
-      let url = 'images/' + product.image;
-      // Use fetch to fetch the image, and convert the resulting response to a blob
-      // Again, if any errors occur we report them in the console.
-      fetch(url).then(function(response) {
+
+      // 만약 검색결과가 없다면, 검색결과가 없음을 출력한다. 
+      if(final_group.length === 0){
+          const para = document.createElement('p');
+          para.textContent = "검색결과가 없습니다! 다시 확인해주세요."
+          data_main.appendChild(para);
+      }
+      // 검색결과가 있다면, fetchBlob함수에 넘겨서 출력을 위한 변환과정을 거친다.
+      else{
+          for(let i=0; i<final_group.length; i++){
+              fetchBlob(final_group[i]);
+          }
+      }
+  }
+
+
+  // fetchBlob 함수는 image의 URL을 만들어주는 과정을 거친다.
+  // image들은 images라는 폴더 안에 존재한다.
+  function fetchBlob(product){
+      // image url의 text값을 지정해준다.
+      let url = './images/' + product.book_image;
+
+      // fetch로 이미지 fetch 후, response해준다.
+      // blob형태로 response하면, 이걸 받아서 URL을 생성해준다.
+      fetch(url).then(function(response){
           return response.blob();
-      }).then(function(blob) {
-        // Convert the blob to an object URL — this is basically an temporary internal URL
-        // that points to an object stored inside the browser
-        let objectURL = URL.createObjectURL(blob);
-        // invoke showProduct
-        showProduct(objectURL, product);
+      }).then(function(blob){
+          // URL을 생성해준다.
+          let object_url = URL.createObjectURL(blob);
+          // product를 인쇄한다.
+          showProduct(object_url, product);
       });
-    }
+  }
+
   
-    // Display a product inside the <main> element
-    function showProduct(objectURL, product) {
-      // create <section>, <h2>, <p>, and <img> elements
+  // product들을 data_main 안에다가 나열해주는 함수이다.
+  function showProduct(objectURL, product){
+      // 각종 element를 생성하여 product의 정보를 작성한다.
       const section = document.createElement('section');
       const heading = document.createElement('h2');
       const para = document.createElement('p');
+      const quality = document.createElement('p');
       const image = document.createElement('img');
-      const button = document.createElement('btn');
-      button.classList.add('btn');
-      button.textContent= 'Click to see more';
-  
-      // give the <section> a classname equal to the product "type" property so it will display the correct icon
-      section.setAttribute('class', product.type);
-  
-      // Give the <h2> textContent equal to the product "name" property, but with the first character
-      // replaced with the uppercase version of the first character
-      heading.textContent = product.name.replace(product.name.charAt(0), product.name.charAt(0).toUpperCase());
-  
-      // Give the <p> textContent equal to the product "price" property, with a $ sign in front
-      // toFixed(2) is used to fix the price at 2 decimal places, so for example 1.40 is displayed
-      // as 1.40, not 1.4.
-      para.textContent = '$' + product.price.toFixed(2);
-  
-      // Set the src of the <img> element to the ObjectURL, and the alt to the product "name" property
+      const button = document.createElement('button');
+      button.textContent = 'More';
+      
+      // section의 class를 property로 설정한다.
+      section.setAttribute('class', product.book_type);
+
+      //  h2 element에다 상품의 이름을 저장한다.
+      heading.textContent = product.book_name;
+
+      // p element에다 제품의 가격을 설정하고, CSS 설정을 위해 class를 부여한다.
+      para.textContent = product.book_price + '₩';
+      para.setAttribute('class', 'price');
+
+      // image elment의 src를 product에서 받아서 설정하고, alt도 설정해준다. 그리고 CSS 설정을 위한 class를 부여한다
       image.src = objectURL;
-      image.alt = product.name;
-  
-      // append the elements to the DOM as appropriate, to add the product to the UI
-      main.appendChild(section);
-      /*section.appendChild(para);*/
+      image.alt = product.book_name;
+      image.setAttribute('class', 'book_img');
+
+      quality.textContent = '상태: ' + product.book_quality + '급';
+
       function showMore(){
-        section.appendChild(heading);
-        section.appendChild(para);
+          section.appendChild(heading);
+          section.appendChild(quality);            
       }
+
+      // DOM에다 해당 product를 추가한다.
+      data_main.appendChild(section);
       section.appendChild(image);
+      section.appendChild(para);
       section.appendChild(button);
       button.onclick = showMore;
-  
-    }
+
   }
+}

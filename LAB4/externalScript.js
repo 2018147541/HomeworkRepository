@@ -1,29 +1,37 @@
+//1)번 방법으로 구현
+
+
+
 // 전체적으로 이 JS는 The Can Store를 기반으로 구현했습니다
 // https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/
 
-//Promise 사용
-fetch('product.json').then(function(response){
-    return response.json();
-}).then(function(json){
-    let prod = json;
-    item_num = prod.length;
-    initialize(prod);
-}).catch(function(error){
-    console.log('Fetch Error: ' + error.message);
-});
+function load(){
+    //Promise 사용
+    fetch('product.json').then(function(response){
+        return response.json();
+    }).then(function(json){
+        let prod = json;
+        item_num = prod.length;
+        initialize(prod);
+    }).catch(function(error){
+        console.log('Fetch Error: ' + error.message);
+    });
+}
 
 // 1 페이지에 최대 출력 가능한 제품 수: 짝수개를 유지해서 2개씩 짝지여서 출력되도록 한다.
-var page_max_num = 6;
-var count = 0;
-var item_num = 0;
-
-alert(page_max_num);
-alert(count);
-alert(item_num);
+let page_max_num = 6;
+let count = 0;
+let item_num;
+let count_max = 3;
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
         count++;
-        alert("The End of the page!");
+        if(count < count_max){
+            load();
+        }
+        else{
+            alert("This is the End!");
+        }
     }
 }
 
