@@ -41,6 +41,19 @@ a:link, a:visited {
 }
 
 p {margin:10px;}
+p.price{
+    color: whitesmoke;
+    background: black;
+    width:60px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 40%;
+    position: absolute;
+    right: 10px;
+    bottom: -6px;
+    z-index: 2000;
+}
 
 img.book_img{
     width: 300px;
@@ -181,7 +194,9 @@ div.site_introduction>h2{
     margin-top:0;
 }
 
-
+section{
+    border: 1px solid black;
+}
 
 div>b.button_active {
     text-align: center; 
