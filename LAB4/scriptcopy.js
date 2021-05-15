@@ -87,6 +87,7 @@ function initialize(products){
           // 우선적으로 category의 값을 확인해야함
           // category 값이 ALL이면, 모든 json 데이터들을 selectProduct에 전달
           if(category.value === 'All'){
+              count_max = 0;
               category_group = products;
               selectProducts();
           }

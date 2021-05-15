@@ -87,16 +87,20 @@ function initialize(products){
             // 사용자가 입력한 검색값 및 카테고리를 저장
             prev_category = category.value;
             prev_search = search_item.value.trim();
-
+            
+            
             // 우선적으로 category의 값을 확인해야함
             // category 값이 ALL이면, 모든 json 데이터들을 selectProduct에 전달
             if(category.value === 'All'){
+                // count_max값을 0으로 초기화하여 다시 infinte-scroll 할 수 있게 한다
                 count_max=0;
                 category_group = products;
                 selectProducts();
             }
             // 아니면 필터링해야한다
             else{
+                // 필터링 할 떄, infinite scroll 되면 안되므로 값을 false로 해준다
+                infinite_sc = false;
                 // json 데이터 필터링
                 for(let i = 0; i < products.length ; i++) {
                     // book_type가 동일할 경우, category_group에 넣는다
