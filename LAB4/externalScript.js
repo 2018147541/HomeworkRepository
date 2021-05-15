@@ -11,6 +11,22 @@ fetch('product.json').then(function(response){
     console.log('Fetch Error: ' + error.message);
 });
 
+var count = 0;
+var item_num = 0;
+window.onscroll = function(e){
+    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
+        count++;
+        fetch('product.json').then(function(response){
+            return response.json();
+        }).then(function(json){
+            let prod = json;
+            initialize(prod);
+        }).catch(function(error){
+            console.log('Fetch Error: ' + error.message);
+        });
+    }
+}
+
 
 //page의 기본 logic 등 구현
 function initialize(products){
