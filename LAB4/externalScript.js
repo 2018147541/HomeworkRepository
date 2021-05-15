@@ -90,12 +90,17 @@ function initialize(products){
 
             // 우선적으로 category의 값을 확인해야함
             // category 값이 ALL이면, 모든 json 데이터들을 selectProduct에 전달
+            // 그리고 infinite scroll이 가능해진다-> true로 변환, count을 0으로 바꾼다
             if(category.value === 'All'){
                 category_group = products;
+                count = 0;
+                infinite_sc = true;
                 selectProducts();
             }
             // 아니면 필터링해야한다
+            // infinite scroll을 못하기 때문에, false로 바꿔준다
             else{
+                infinite_sc = false;
                 // json 데이터 필터링
                 for(let i = 0; i < products.length ; i++) {
                     // book_type가 동일할 경우, category_group에 넣는다
