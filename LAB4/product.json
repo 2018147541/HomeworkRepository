@@ -66,7 +66,7 @@
     "book_name": "Fundamentals of Physics",
     "book_type": "Physics/Chemistry",
     "book_price": "30000",
-    "book_image": "fundamentals of physics.jpg",
+    "book_image": "fundamentals_of_physics.jpg",
     "book_spec": "The new edition offers most accurate, extensive and varied set of assessment questions of any course management program in addition to all questions including some form of question assistance including answer specific feedback to facilitate success.",
     "book_ver":"10th Edition",
     "book_quality":"B"
@@ -88,14 +88,5 @@
     "book_spec": "이 책은 가장 객관적이고 신뢰받는 현대사 개설서로 인정받으며 대학 신입생의 필독서로 자리매김했다.",
     "book_ver":"3th edition",
     "book_quality":"A"
-},
-    {
-    "book_name": "",
-    "book_type": "Korean History",
-    "book_price": "",
-    "book_image": "",
-    "book_spec": "",
-    "book_ver":"",
-    "book_quality":""
 }
 ]
