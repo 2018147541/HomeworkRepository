@@ -1,16 +1,6 @@
 // 전체적으로 이 JS는 The Can Store를 기반으로 구현했습니다
 // https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/
 
-
-window.onscroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight){
-      initialize(product);
-    }
-}
-
-
-
-
 //Promise 사용
 fetch('product.json').then(function(response){
     return response.json();
@@ -20,6 +10,12 @@ fetch('product.json').then(function(response){
 }).catch(function(error){
     console.log('Fetch Error: ' + error.message);
 });
+
+window.onscroll = () => {
+    if (window.innerHeight + window.scrollY >= document.getElementById("main_data").offsetHeight){
+      initialize(prod);
+    }
+}
 
 
 
@@ -191,17 +187,8 @@ function initialize(products){
         quality.textContent = '상태: ' + product.book_quality + '급';
 
         function showMore(){
-            if(button.value === "More"){
-                section.appendChild(heading);
-                section.appendChild(quality);
-                button.value = "Close";
-            }
-            else{
-                //section.removeChild(section.childNodes[3]);
-                //section.removeChild(section.childNodes[3]);
-                //button.value = "More";
-            }
-            
+            section.appendChild(heading);
+            section.appendChild(quality);            
         }
 
         // DOM에다 해당 product를 추가한다.
