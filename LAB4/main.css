@@ -42,9 +42,6 @@ a:link, a:visited {
 
 p {margin:10px;}
 
-p.price{
-    
-}
 img.book_img{
     width: 300px;
 }
@@ -164,6 +161,9 @@ button.signup_button {
     border-top:0;
     margin: 0;
     padding: 0;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
 }
 
 div { text-align: left; margin: 0.5em; padding: 0.5em;}
