@@ -32,8 +32,8 @@ window.onscroll = function(e){
         //이미 측정된 count_max보다 count가 같거나 크면, infinite scroll을 할 필요가 없다.
         if(count >= count_max){
             infinite_sc = true;
-            load();
             count++;
+            load();
         }
         // 그 외의 경우에는 따로 변경되지 않는다.
     }
@@ -63,7 +63,9 @@ function initialize(products){
     let final_group;
   
     // 첫 시작은 전부 다 보여줘야 하므로, 일단 final group을 products로 초기화, display
+    // 또한 item num이 정해져있지 않아서, 그 값을 초기화한다.
     final_group = products;
+    item_num = products.length;
     updateDisplay();
 
     // 검색을 위해 둘 다 비워두기
