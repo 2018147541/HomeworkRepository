@@ -57,17 +57,21 @@ function initialize(products){
     let category_group;
     let final_group;
   
-    // 첫 시작은 전부 다 보여줘야 하므로, 일단 final group을 products로 초기화, display
-    final_group = products;
-    updateDisplay();
+    // 만약 category가 ALL이면 따로 해줌
+    if(prev_category === 'All'){
+        // 첫 시작은 전부 다 보여줘야 하므로, 일단 final group을 products로 초기화, display
+        final_group = products;
+        updateDisplay();
+    }
+    //아닌 경우에는 따로 불러준다
+    else{
+// 검색을 위해 둘 다 비워두기
+        category_group = [];
+        final_group = [];
 
-    // 검색을 위해 둘 다 비워두기
-    category_group = [];
-    final_group = [];
-
-    // 검색 버튼이 클릭되면 selectCategory 함수 부르기
-    search_btn.onclick = selectCategory;
-
+        // 검색 버튼이 클릭되면 selectCategory 함수 부르기
+        search_btn.onclick = selectCategory;    
+    }
 
     // 검색버튼 클릭될 시, 카테고리 필터링 할 방법 확인
     function selectCategory(e){
