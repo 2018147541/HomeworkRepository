@@ -197,9 +197,9 @@ function initialize(products){
                 button.value = "Close";
             }
             else{
-                section.removeChild(section.childNodes[3]);
-                section.removeChild(section.childNodes[3]);
-                button.value = "More";
+                //section.removeChild(section.childNodes[3]);
+                //section.removeChild(section.childNodes[3]);
+                //button.value = "More";
             }
             
         }
