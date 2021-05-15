@@ -11,13 +11,6 @@ fetch('product.json').then(function(response){
     console.log('Fetch Error: ' + error.message);
 });
 
-window.onscroll = () => {
-    if (window.innerHeight + window.scrollY >= document.getElementById("main_data").offsetHeight){
-      initialize(prod);
-    }
-}
-
-
 
 //page의 기본 logic 등 구현
 function initialize(products){
