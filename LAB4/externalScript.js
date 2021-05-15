@@ -16,7 +16,7 @@ var item_num = 0;
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
         count++;
-        
+        alert("The End of the page!");
     }
 }
 
