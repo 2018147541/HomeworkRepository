@@ -182,8 +182,15 @@ function initialize(products){
         quality.textContent = '상태: ' + product.book_quality + '급';
 
         function showMore(){
-            section.appendChild(heading);
-            section.appendChild(quality);
+            if(button.value === "More"){
+                section.appendChild(heading);
+                section.appendChild(quality);
+                button.value = "Close";
+            }
+            else{
+                section.removeChild(section.childNodes['h2'])
+            }
+            
         }
 
         // DOM에다 해당 product를 추가한다.
