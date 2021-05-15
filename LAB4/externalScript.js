@@ -26,16 +26,21 @@ let count = 0;
 let item_num = 0;
 // 특정 환경에서 infinite scroll이 최대로 불러질 수 있는 횟수를 저장한다.
 let count_max = 0;
+// infinite scroll을 지금 해야하는지 하지 말아야하는지 판단할 때 사용된다.
 let infinite_sc = false;
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
         //이미 측정된 count_max보다 count가 같거나 크면, infinite scroll을 할 필요가 없다.
-        if(count >= count_max){
-            infinite_sc = true;
+        if(count < count_max){
             count++;
             load();
+            infinite_sc = true;
         }
-        // 그 외의 경우에는 따로 변경되지 않는다.
+        // 그 외의 경우에는 infinite_sc를 false로 둔다
+        else{
+            infinite_sc = false;
+        }
+       
     }
 }
 
@@ -98,7 +103,7 @@ function initialize(products){
             // 우선적으로 category의 값을 확인해야함
             // category 값이 변했기 때문에, category의 element의 갯수 등을 초기화시켜야한다.
             // ALL이면, 모든 json 데이터들을 selectProduct에 전달
-            // 이 경우는, category가 바뀌어서 all인 경우이므로, 화면을 지워야함->infinite scroll false여야한다
+            // 이 경우는, category가 바뀌어서 all인 경우이므로, 화면을 지워야함->infinite scroll_ing가 false여야한다
 
             count = 0;
             infinite_sc = false;
