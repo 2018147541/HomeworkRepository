@@ -130,6 +130,8 @@ function initialize(products){
 
     // 카테고리로 필터링 후, 검색어로 필터링 하기 위해, 함수를 만든다.
     function selectProducts(){
+        // 필터링한 아이템 갯수 담는 변수 초기화
+        item_num = 0;
         // 만약 검색어가 존재한다면(''이 아니라면), display에 출력, 아니면 그냥 그대로 출력한다.
         if(search_item.value.trim() === ''){
             final_group = category_group;
