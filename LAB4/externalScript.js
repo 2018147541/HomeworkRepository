@@ -78,7 +78,7 @@ function initialize(products){
         category_group = [];
         final_group = [];
 
-        // 기존 category와 값이 같거나, 검색 text도 동일할 시, 기존과 동일함->함수 종료
+        // 기존 category와 값이 같고 검색 text도 동일할 시, 기존과 동일함->함수 종료
         if(category.value === prev_category && search_item.value.trim() === prev_search) {
             return;
         }
@@ -141,7 +141,6 @@ function initialize(products){
             for(let i=0; i<final_group.length; i++){
                 fetchBlob(final_group[i]);
             }
-            infinite_sc = false;
         }
         else{
             //기존 내용들을 지운다.
