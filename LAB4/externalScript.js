@@ -90,11 +90,11 @@ function initialize(products){
 
             // 우선적으로 category의 값을 확인해야함
             // category 값이 ALL이면, 모든 json 데이터들을 selectProduct에 전달
-            // 그리고 infinite scroll이 가능해진다-> true로 변환, count을 0으로 바꾼다
+            // 이 경우는, category가 바뀌어서 all인 경우이므로, 화면을 지워야함->infinite scroll false여야한다
             if(category.value === 'All'){
                 category_group = products;
                 count = 0;
-                infinite_sc = true;
+                infinite_sc = false;
                 selectProducts();
             }
             // 아니면 필터링해야한다
