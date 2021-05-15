@@ -27,13 +27,13 @@ let page_max_num = 6;
 let count = 0;
 let item_num;
 let count_max = 6;
+let infinite_sc = false;
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
         count++;
         if(count < count_max){
+            infinite_sc = true;
             load();
-        }
-        else{
         }
     }
 }
@@ -139,21 +139,31 @@ function initialize(products){
 
     // 화면에 출력을 담당하는 함수를 설정한다.
     function updateDisplay(){
-        //기존 내용들을 지운다.
-        while(data_main.firstChild){
-            data_main.removeChild(data_main.firstChild);
-        }
-
-        // 만약 검색결과가 없다면, 검색결과가 없음을 출력한다. 
-        if(final_group.length === 0){
-            const para = document.createElement('p');
-            para.textContent = "검색결과가 없습니다! 다시 확인해주세요."
-            data_main.appendChild(para);
-        }
-        // 검색결과가 있다면, fetchBlob함수에 넘겨서 출력을 위한 변환과정을 거친다.
-        else{
+        // 만약 infinite scroll중이라면, 기존내용을 지우면 안되므로, 이걸 구분해야한다.
+        if(infinite_sc){
+            //똑같은 내용을 한 번 더 
             for(let i=0; i<final_group.length; i++){
                 fetchBlob(final_group[i]);
+            }
+            infinite_sc = false;
+        }
+        else{
+            //기존 내용들을 지운다.
+            while(data_main.firstChild){
+                data_main.removeChild(data_main.firstChild);
+            }
+
+            // 만약 검색결과가 없다면, 검색결과가 없음을 출력한다. 
+            if(final_group.length === 0){
+                const para = document.createElement('p');
+                para.textContent = "검색결과가 없습니다! 다시 확인해주세요."
+                data_main.appendChild(para);
+            }
+            // 검색결과가 있다면, fetchBlob함수에 넘겨서 출력을 위한 변환과정을 거친다.
+            else{
+                for(let i=0; i<final_group.length; i++){
+                    fetchBlob(final_group[i]);
+                }
             }
         }
     }
