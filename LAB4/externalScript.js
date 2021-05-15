@@ -27,7 +27,7 @@ let infinite_sc = false;
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
         count++;
-        if(count < count_max){
+        if((count < count_max) && document.getElementById('category_select').value === 'All'){
             infinite_sc = true;
             load();
         }
