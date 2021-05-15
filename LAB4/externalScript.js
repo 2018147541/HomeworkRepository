@@ -1,7 +1,3 @@
-//1)번 방법으로 구현
-
-
-
 // 전체적으로 이 JS는 The Can Store를 기반으로 구현했습니다
 // https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/
 
@@ -26,7 +22,7 @@ function load(){
 let page_max_num = 6;
 let count = 0;
 let item_num;
-let count_max = 6;
+let count_max = 3;
 let infinite_sc = false;
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
@@ -95,6 +91,7 @@ function initialize(products){
             // 우선적으로 category의 값을 확인해야함
             // category 값이 ALL이면, 모든 json 데이터들을 selectProduct에 전달
             if(category.value === 'All'){
+                count_max=0;
                 category_group = products;
                 selectProducts();
             }
