@@ -22,7 +22,7 @@ function load(){
 let page_max_num = 6;
 let count = 0;
 let item_num;
-let count_max = 3;
+let count_max = 6;
 let infinite_sc = false;
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
