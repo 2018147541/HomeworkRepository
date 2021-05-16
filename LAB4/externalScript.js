@@ -94,10 +94,8 @@ function initialize(products){
             // 이 경우는, category가 바뀌어서 all인 경우이므로, 화면을 지워야함->infinite scroll false여야한다
             if(category.value === 'All'){
                 category_group = products;
-                if(search_item.value.trim() === ''){
-                    count = 0;
-                    infinite_sc = false;
-                }
+                count = 0;
+                infinite_sc = false;
                 selectProducts();
             }
             // 아니면 필터링해야한다
