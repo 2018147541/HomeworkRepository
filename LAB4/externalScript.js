@@ -90,12 +90,14 @@ function initialize(products){
             prev_search = search_item.value.trim();
 
             // 우선적으로 category의 값을 확인해야함
-            // category 값이 ALL이면, 모든 json 데이터들을 selectProduct에 전달
+            // category 값이 ALL이고 검색어가 없으면, 모든 json 데이터들을 selectProduct에 전달
             // 이 경우는, category가 바뀌어서 all인 경우이므로, 화면을 지워야함->infinite scroll false여야한다
             if(category.value === 'All'){
                 category_group = products;
-                count = 0;
-                infinite_sc = false;
+                if(search_item.value.trim() === ''){
+                    count = 0;
+                    infinite_sc = false;
+                }
                 selectProducts();
             }
             // 아니면 필터링해야한다
