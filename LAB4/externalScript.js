@@ -218,6 +218,7 @@ function initialize(products){
         quality.textContent = '상태: ' + product.book_quality + '급';
 
         function showMore(){
+            section.appendChild(para);
             section.appendChild(heading);
             section.appendChild(quality);            
         }
@@ -225,7 +226,6 @@ function initialize(products){
         // DOM에다 해당 product를 추가한다.
         data_main.appendChild(section);
         section.appendChild(image);
-        section.appendChild(para);
         section.appendChild(button);
         button.onclick = showMore;
 
