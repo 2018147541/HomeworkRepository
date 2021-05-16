@@ -27,7 +27,7 @@ let infinite_sc = false;
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
         //count가 count_max보다 작고, select된 category가 ALL이고 검색어가 없는 경우에만 Infinite scroll을 허용한다
-        if((count < count_max) && (document.getElementById('category_select').value === 'All') && (document.getElementById('category_select').value === '')){
+        if((count < count_max) && (document.getElementById('category_select').value === 'All') && (document.getElementById('search_item').value === '')){
             count++;
             infinite_sc = true;
             load();
