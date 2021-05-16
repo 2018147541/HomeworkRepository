@@ -12,23 +12,23 @@ function load(){
         return response.json();
     }).then(function(json){
         let prod = json;
-        item_num = prod.length;
         initialize(prod);
     }).catch(function(error){
         console.log('Fetch Error: ' + error.message);
     });
 }
 
-// 1 페이지에 최대 출력 가능한 제품 수: 짝수개를 유지해서 2개씩 짝지여서 출력되도록 한다.
-let page_max_num = 6;
+//현재 infinite scroll이 몇번 불러졌는지 count한다
 let count = 0;
-let item_num;
+//최대 infinite scoll이 가능한 횟수를 저장한다
 let count_max = 6;
+//기본적으로 infinite scroll은 불가하나, 
 let infinite_sc = false;
 window.onscroll = function(e){
     if((window.innerHeight + window.scrollY) >= document.body.offsetHeight ){
-        count++;
-        if((count < count_max) && document.getElementById('category_select').value === 'All'){
+        //count가 count_max보다 작고, select된 category가 ALL이고 검색어가 없는 경우에만 Infinite scroll을 허용한다
+        if((count < count_max) && (document.getElementById('category_select').value === 'All') && (document.getElementById('category_select').value === '')){
+            count++;
             infinite_sc = true;
             load();
         }
@@ -99,7 +99,7 @@ function initialize(products){
                 selectProducts();
             }
             // 아니면 필터링해야한다
-            // infinite scroll을 못하기 때문에, false로 바꿔준다
+            // 필터링된 결과들은 infinite scroll을 지원하지 않기 때문에, false로 바꿔준다
             else{
                 infinite_sc = false;
                 // json 데이터 필터링
