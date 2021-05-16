@@ -218,8 +218,8 @@ function initialize(products){
         quality.textContent = '상태: ' + product.book_quality + '급';
 
         function showMore(){
-            section.appendChild(para);
             section.appendChild(heading);
+            section.appendChild(para);
             section.appendChild(quality);            
         }
 
