@@ -12,7 +12,8 @@ var app = http.createServer(function(request,response){
     }
     response.writeHead(200);
     console.log(__dirname+url);
-    response.end(fs.readFileSync(__dirname + url));
+    response.end('egoing: ' + url);
+    //response.end(fs.readFileSync(__dirname + url));
  
 });
 app.listen(3000);
