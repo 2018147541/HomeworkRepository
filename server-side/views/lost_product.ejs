@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/styles.css" rel="stylesheet" />
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=51fddb43fd531627d9e6a7f464521638"></script>
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">마이 로스트</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/map">맵</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/search">분실물 검색</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/register">습득물 신고</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/talk">게시판</a>
+            </div>
+        </div>
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Top navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-primary" id="sidebarToggle">게시판 목록</button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation"><span
+                            class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item active"><a class="nav-link" href="/map">홈으로</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">로그인</a>
+                                    <div id="user_login" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                    </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page content-->
+            <div>
+                <div id="kimagea">
+                    <img src="http://localhost:3000/image/:<%=rows[0].it_id%>" width=400px;>
+                </div>
+                <p><strong>습득물 이름: </strong><%= rows[0].name%></p>
+                <p><strong>습득 장소: </strong>  <%= rows[0].acq_lat%>,<%= rows[0].acq_long%>)</p>
+                <p><strong>습득 일시: </strong><%=rows[0].acq_time%></p>
+                <p><strong>보관 장소: </strong><%=rows[0].place%></p>
+                <p><strong>습득물 설명: </strong><%=rows[0].spec%></p>
+                <div id="map" style="width:500px;height:400px;"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/frontjs/scripts.js"></script>
+    <script src="/frontjs/kakao.js"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=51fddb43fd531627d9e6a7f464521638&libraries=services"></script>
+    <script>
+        //map api로 해당 습득물 위치 및 정보 표기
+        row = <%- JSON.stringify(rows) %>;
+        var latitude = row[0].acq_lat;
+        var longitude = row[0].acq_long;
+
+        var container = document.getElementById('map');
+        var options = {
+          center: new kakao.maps.LatLng(latitude, longitude),
+          level: 3
+        };
+
+        // 맵을 생성합니다
+        var map = new kakao.maps.Map(container, options);
+
+        // 마커가 표시될 위치입니다
+        var markerPosition  = new kakao.maps.LatLng(latitude, longitude);
+
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            position: markerPosition,
+            clickable: true
+        });
+
+        // 마커가 지도 위에 표시되도록 설정합니다
+        marker.setMap(map);
+
+        // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+        var iwContent = '<div style="padding : 15px; width : 300px;">습득물 이름 : '+row[0].name+ '<br>습득 일시 : '+row[0].acq_time+ '<br>습득 장소 : '+row[0].place+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+            iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+        // 인포윈도우를 생성합니다
+        var infowindow = new kakao.maps.InfoWindow({
+            content : iwContent,
+            removable : iwRemoveable
+        });
+
+        // 마커에 클릭이벤트를 등록합니다
+        kakao.maps.event.addListener(marker, 'click', function() {
+              // 마커 위에 인포윈도우를 표시합니다
+              infowindow.open(map, marker);
+        });
+
+    </script>
+	<script>
+		var login_ab = <%=login_able%>;
+		while (document.getElementById("user_login").firstChild) {
+                   document.getElementById("user_login").removeChild(document.getElementById("user_login").firstChild);
+		}
+		if(!login_ab){
+			const a1 = document.createElement('a');
+			const a2 = document.createElement('a');
+			a1.textContent = "로그인";
+			a2.textContent = "회원가입";
+			a1.href="/login";
+			a2.href="/signup";
+			a1.className="dropdown-item";
+			a2.className="dropdown-item";
+			document.getElementById("user_login").appendChild(a1);
+			document.getElementById("user_login").appendChild(a2);
+		}
+		else{
+			const a4 = document.createElement('a');
+			a4.textContent = "로그아웃";
+			a4.href="/logout";
+			a4.className="dropdown-item";
+			document.getElementById("user_login").appendChild(a4);
+		}
+	</script>
+</body>
+
+</html>

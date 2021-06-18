@@ -1,0 +1,69 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+	<title>Sign Up 07</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="css/style2.css">
+
+</head>
+
+<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">마이 로스트 회원가입</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-7 col-lg-5">
+					<div class="login-wrap p-4 p-md-5">
+						<div class="img" style="background-image: url(image/bg.jpg);"></div>
+						<h3 class="text-center mb-4">당신만의 계정을 만드세요!</h3>
+						<form class="signup-form" method="POST">
+							<div class="form-group mb-3">
+								<label>이름
+									<input type="text" name="user_real_name" class="form-control" placeholder="사실 중요하지 않습니다!">
+								</label>
+							</div>
+							<div class="form-group mb-3">
+								<label>아이디
+									<input type="text" name="user_id" class="form-control" placeholder="영어or숫자로 6~15자">
+								</label>
+							</div>
+							<div class="form-group mb-3">
+								<label>비밀번호
+									<input id="password-field" name="user_pw" type="password" class="form-control"
+										placeholder="영어or숫자로 8~20글자">
+								</label>
+								<span toggle="#password-field"
+									class="fa fa-fw fa-eye field-icon toggle-password"></span>
+							</div>
+							<div class="form-group">
+								<button type="submit" class="form-control btn btn-primary submit px-3">마이 로스트 계정
+									만들기!</button>
+							</div>
+						</form>
+						<p>아이디가 이미 있어요!<a href="/login">로그인 페이지로 이동</a></p>
+						<p>홈으로 갈래요<a href="/map">홈으로 이동</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="frontjs/jquery.min.js"></script>
+	<script src="frontjs/popper.js"></script>
+	<script src="frontjs/bootstrap.min.js"></script>
+	<script src="frontjs/main2.js"></script>
+
+</body>
+
+</html>

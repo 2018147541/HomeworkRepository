@@ -1,0 +1,170 @@
+html {
+    height: 100%; 
+    width: 100%;
+}
+
+h1{
+    font-family: 'Amatic SC', cursive;
+    font-size: 70px;
+    text-align: left;
+    margin: 0px auto;
+    width: 1000px;
+    position: relative;
+}
+
+#Gradiant{
+    text-align: center;
+    width: 500px; height: 540px;
+    background:linear-gradient(145deg, rgb(129, 145, 235) 17%,
+    rgb(231, 116, 193) 52%, rgb(236, 108, 114) 77%);
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    margin-left: -250px;
+    border: 4px;
+    border-color: black;
+    text-align: center;
+    border-style:solid;
+    border-left-style: none;
+    border-right-style: none;
+}
+
+#Gradiant>form{
+    width:75%;
+}
+
+#boss{
+    width: 200px;
+    height: 50px;
+}
+
+
+#Gradiant p{
+    font-family: 'Hi Melody', cursive;
+    font-size: 20px;
+}
+
+
+#Section{
+    width: 1000px;
+    height: 99%;
+    border: 4px;
+    border-color: black;
+    text-align: center;
+    border-style:solid;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    margin: 10px;
+    position: relative;
+    left: 50%;
+    top: 30%;
+    margin-left: -500px;
+}
+#k {
+    width: 70%;
+    padding-left: 1px;
+    margin-left: 1px;
+    float: right;
+    position: relative;
+    font-style: italic;
+    border-left-color: black;
+  }
+
+  #kimage{
+    float: left;
+    width: 300px;
+    height: 400px;
+    margin:0;
+}  
+
+#kimage>img{
+    width: 98%;
+    height: 98%;
+    bottom: 0px;
+    margin:0;
+}
+
+#commentdiv{
+    float: left;
+    width: 400px;
+    height: 500px;
+    margin:0;
+}
+
+#review{
+    float: left;
+    width: 300px;
+    height: 400px;
+    margin:0;
+} 
+
+#Section>div>div{
+    text-align: left;
+    margin: 15px;
+    float: left; 
+    width: 40%;
+    height: 280px;
+    border: 2px;
+    border-style:solid;
+    border-color: black;
+}
+
+#Section>div>div>img{
+    width: 98%;
+    height: 150px;
+    bottom: 0px;
+}
+#Section>div>div>p{
+    width: 40%;
+}
+#Section>div>#product_data{
+    width: 95%;
+}
+#product_data>section{
+    width: 90%;
+}
+
+#searching{
+    width:25%;
+    height: 98%;
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    position: relative;
+}
+#searching>form>div{
+    width: 95%;
+    margin-top: 12px;
+}
+
+
+
+
+nav{
+    text-align: center;
+    width: 1000px;
+    position: relative;
+    left: 50%;
+    top: 15%;
+    margin-left: -500px;
+    background-color: lavenderblush;
+}
+
+span a{
+    color:skyblue;
+    font-family: 'Nanum Pen Script', cursive;
+    width: 40px;
+    text-decoration: none;
+    text-align: center;
+    background-color: blueviolet;
+    border-color:red;
+    border-style:dashed;
+    font-size: 30px;
+    padding: 5px;
+    border-width: medium;
+    margin: 10px;
+}
+#product_data{
+    width: 95%;
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="/css/styles.css" rel="stylesheet" />
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=51fddb43fd531627d9e6a7f464521638&libraries=services"></script>
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar-->
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">마이 로스트</div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/map">맵</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/search">분실물 검색</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/register">습득물 신고</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/talk">게시판</a>
+            </div>
+        </div>
+        <!-- Page content wrapper-->
+        <div id="page-content-wrapper">
+            <!-- Top navigation-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="container-fluid">
+                    <button class="btn btn-primary" id="sidebarToggle">게시판 목록</button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation"><span
+                            class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item active"><a class="nav-link" href="/map">홈으로</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">로그인</a>
+                                <div id="user_login" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Page content-->
+            <div class="container-fluid">
+                <h1 class="mt-4">맵</h1>
+                <p>최근에 신고된 분실물을 보여드립니다!(지도를 둘러봐 주세요!)</p>
+                <div id="map" style="width:500px;height:400px;"></div>
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=51fddb43fd531627d9e6a7f464521638&libraries=services"></script>
+                <script>
+              		// ----------------------------------현재 사용자 위치 표시 --------------------------
+              		// html5 내장 api
+              		navigator.geolocation.getCurrentPosition(position => {
+              	    const { latitude, longitude } = position.coords;
+              	    // Show a map centered at latitude / longitude.
+              			document.getElementById("geolocation").innerHTML = "현재 사용자의 위치: <p>위도 = "+ latitude + "</p><p>경도 = " + longitude +"</p>";
+
+              			var container = document.getElementById('map');
+              			var options = {
+              				center: new kakao.maps.LatLng(latitude, longitude),
+              				level: 3
+              			};
+
+              			var map = new kakao.maps.Map(container, options);
+
+                    // 마커 이미지의 이미지 주소입니다
+                    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+                    // 마커 이미지의 이미지 크기 입니다
+                    var imageSize = new kakao.maps.Size(24, 35);
+                    // 마커 이미지를 생성합니다
+                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+              			// 마커가 표시될 위치입니다
+              			var markerPosition  = new kakao.maps.LatLng(latitude, longitude);
+
+              			// 마커를 생성합니다
+              			var myhome = new kakao.maps.Marker({
+              			    position: markerPosition,
+              					clickable: true,
+                        image : markerImage // 마커 이미지
+              			});
+
+              			// 마커가 지도 위에 표시되도록 설정합니다
+              			myhome.setMap(map);
+
+              			// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+              			var iwContent = '<div style="padding : 15px; width : 200px;">현재 사용자의 위치</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+              			    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+              			// 인포윈도우를 생성합니다
+              			var infowindow = new kakao.maps.InfoWindow({
+              			    content : iwContent,
+              			    removable : iwRemoveable
+              			});
+
+              			// 마커에 클릭이벤트를 등록합니다
+              			kakao.maps.event.addListener(myhome, 'click', function() {
+              			      // 마커 위에 인포윈도우를 표시합니다
+              			      infowindow.open(map, myhome);
+              			});
+
+              			// -----------------------------------핀 여러개 생성하기 ---------------------
+                    // ---------------------------------경찰철 API에서 받아온거 --------------------
+              			row = <%- JSON.stringify(rows) %>;
+                    for (var q = 0; q < row.length; q++) {
+                      data_str(row,q);
+                    }
+
+              			function data_str(row,p){
+              				var place = row[p].depPlace._text; // 보관중인 장소
+              				var name = row[p].fdPrdtNm._text; // 습득물 이름
+              				var date = row[p].fdYmd._text; // 습득 날자
+              				var cate = row[p].prdtClNm._text; // 분실물 분류
+
+              				// 분실물에 적힌 내용에 따라 좌표값 획득 + 지도에 핀으로 표현
+              				var ps = new kakao.maps.services.Places();
+              				// 키워드로 장소를 검색합니다 + 좌표값 얻음!
+              				ps.keywordSearch(place,placesSearchCB);
+
+
+
+              				// 키워드 검색 완료 시 호출되는 콜백함수
+              				function placesSearchCB (data, status, pagination) {
+              				  if (status === kakao.maps.services.Status.OK) {
+              						if(data.length > 0){
+              							var loc_x = data[0].x
+              							var loc_y = data[0].y
+            								var loc = {x : loc_x, y : loc_y}
+            								displayMarker(loc); // 핀(마커) 설치하기
+            							}
+            					  }
+            					}
+
+              				function displayMarker(place) {
+              					// console.log("hahaha"); <------ 함수 반복 횟수 체크용
+
+              				   // 마커를 생성하고 지도에 표시함
+              				  var marker = new kakao.maps.Marker({
+              				      map: map,
+            					      position: new kakao.maps.LatLng(place.y, place.x),
+            								clickable: true
+            					  });
+                        console.log(p);
+                        console.log(row[p].depPlace._text);
+
+              					// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성
+              					var iwContent = '<div style="padding:15px; width:300px;">' + '습득물 보관장소 : ' + row[p].depPlace._text + '<br>습득물명 : ' + row[p].fdPrdtNm._text + '<br>습득 날자 : ' + row[p].fdYmd._text + '<br>물품분류명 : ' + row[p].prdtClNm._text + '</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+              								iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+              					// 인포윈도우를 생성합니다
+              					var infowindow = new kakao.maps.InfoWindow({
+            								content : iwContent,
+            								removable : iwRemoveable
+            						});
+
+            						// 마커에 클릭이벤트를 등록합니다
+            						kakao.maps.event.addListener(marker, 'click', function() {
+            						      // 마커 위에 인포윈도우를 표시합니다
+            						      infowindow.open(map, marker);
+            						});
+            					}
+            				}
+                    // --------------------------데이터 베이스에서 받아온거 --------------------
+              			dbrow = <%- JSON.stringify(dbrows) %>;
+                    for (var q = 0; q < dbrow.length; q++) {
+                      data_db(dbrow,q);
+                    }
+
+              			function data_db(dbrow,p){
+              				var place = dbrow[p].place; // 보관중인 장소
+              				var name = dbrow[p].name; // 습득물 이름
+              				var date = dbrow[p].acq_time; // 습득 날자
+              				var cate = dbrow[p].category; // 분실물 분류
+                      var db_lat = dbrow[p].acq_lat;
+                      var db_long = dbrow[p].acq_long;
+
+              				// 분실물에 적힌 내용에 따라 지도에 핀으로 표현
+
+                      // 마커 이미지의 이미지 주소입니다
+                      var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/2009/map/icon/ico_mn_13.png";
+                      // 마커 이미지의 이미지 크기 입니다
+                      var imageSize = new kakao.maps.Size(24, 27);
+                      // 마커 이미지를 생성합니다
+                      var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+                			// 마커가 표시될 위치입니다
+                			var markerPosition  = new kakao.maps.LatLng(db_lat, db_long);
+
+                			// 마커를 생성합니다
+                			var marker = new kakao.maps.Marker({
+                			    position: markerPosition,
+                					clickable: true,
+                          image : markerImage // 마커 이미지
+                			});
+
+                      // 마커가 지도 위에 표시되도록 설정합니다
+                			marker.setMap(map);
+
+              				// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성
+              				var iwContent = '<div style="padding:15px; width:300px;">' + '습득물 보관장소 : ' + place + '<br>습득물명 : ' + name + '<br>습득 날자 : ' + date + '<br>물품분류명 : ' + cate + '</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+
+              				iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+            					// 인포윈도우를 생성합니다
+            					var infowindow = new kakao.maps.InfoWindow({
+          								content : iwContent,
+          								removable : iwRemoveable
+            					});
+
+            					// 마커에 클릭이벤트를 등록합니다
+            					kakao.maps.event.addListener(marker, 'click', function() {
+            					      // 마커 위에 인포윈도우를 표시합니다
+            					      infowindow.open(map, marker);
+            					});
+            				}
+              	  });
+              	</script>
+                <div id="geolocation">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="/frontjs/scripts.js"></script>
+    <script src="/frontjs/kakao.js"></script>
+    <script>
+        var login_ab = <%=login_able%>;
+		while (document.getElementById("user_login").firstChild) {
+                   document.getElementById("user_login").removeChild(document.getElementById("user_login").firstChild);
+		}
+		if(!login_ab){
+			const a1 = document.createElement('a');
+			const a2 = document.createElement('a');
+			a1.textContent = "로그인";
+			a2.textContent = "회원가입";
+			a1.href="/login";
+			a2.href="/signup";
+			a1.className="dropdown-item";
+			a2.className="dropdown-item";
+			document.getElementById("user_login").appendChild(a1);
+			document.getElementById("user_login").appendChild(a2);
+		}
+		else{
+			const a4 = document.createElement('a');
+			a4.textContent = "로그아웃";
+			a4.href="/logout";
+			a4.className="dropdown-item";
+			document.getElementById("user_login").appendChild(a4);
+		}
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인터넷 프로그래밍</title>
+</head>
+
+<body>
+    <h1>아 과제하기 싫당</h1>
+    <div id="draggable" class="ui-widget-content">
+        <p>드래그해봐용</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#draggable").draggable();
+        })
+        $.ajax({
+            method: "GET",
+            url:"https://dapi.kakao.com/v2/search/web",
+            data: { query:"이효리" },
+            headers:{ Authorization: "KakaoAK 3e3ba75be1df3cec6fae05745ae74c2f"}
+        })
+            .done(function(msg){
+                alert(msg);
+                console.log(msg);
+            });
+
+        $.ajax({
+            method: "GET",
+            url:"http://apis.data.go.kr/B552061/frequentzoneOldman/getRestFrequentzoneOldman?serviceKey=86kpsPpDcpUIHdz4iTlnsm8TSlZEcvcIO85dWX%2BIr1bbGUVecimHMgJU0gm%2Bxc0Mb7o%2BsdYS4qTare%2BCL79XTw%3D%3D&searchYearCd=2015&siDo=11&guGun=320&type=json&numOfRows=10&pageNo=1"
+        })
+            .done(function(msg){
+                alert(msg);
+                console.log(msg);
+            });    
+
+
+
+    </script>
+</body>
+
+</html>
